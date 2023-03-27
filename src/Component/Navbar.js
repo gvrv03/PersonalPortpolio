@@ -1,6 +1,7 @@
 import TopNav from "gauravnarnaware/NavItem/TopNav";
 import React, { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
+import Image from "next/image";
 
 const Navbar = () => {
   const { theme, setTheme } = useTheme();
@@ -61,7 +62,9 @@ const Navbar = () => {
       <nav className="p-3 fixed w-full bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
         <div className="container flex flex-wrap items-center justify-between mx-auto">
           <a href="#" className="flex items-center">
-            <img
+            <Image
+            width={100}
+            height={100}
               src="https://flowbite.com/docs/images/logo.svg"
               className="h-6 mr-3 sm:h-10"
               alt="Flowbite Logo"
