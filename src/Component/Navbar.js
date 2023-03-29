@@ -59,17 +59,17 @@ const Navbar = () => {
   };
   return (
     <>
-      <nav className="py-3 fixed w-full left-0 backdrop-blur-xl border shadow-sm dark:border-none dark:shadow-md border-gray-200 ">
+      <nav className="py-3 px-5 fixed w-full left-0 backdrop-blur-xl border shadow-sm dark:border-none dark:shadow-md border-gray-200 ">
         <div className="container flex flex-wrap items-center justify-between mx-auto">
           <a href="#" className="flex items-center">
             <Image
-            width={100}
-            height={100}
+              width={20}
+              height={100}
               src="https://flowbite.com/docs/images/logo.svg"
               className="h-6  sm:h-10"
               alt="Flowbite Logo"
             />
-            <span className="text-xl font-semibold  dark:text-white">
+            <span className="text-xl ml-2 font-semibold  dark:text-white">
               Gaurav
             </span>
           </a>
