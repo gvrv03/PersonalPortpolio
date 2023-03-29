@@ -8,3 +8,9 @@
     /* background-color: red; */
     background-image:url("/Background.svg");
 }
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 0px;
+  }
+  

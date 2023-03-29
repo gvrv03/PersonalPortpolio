@@ -12,13 +12,9 @@ const HeaderName = (props) => {
 const FeatureBlog = () => {
   const BlogCard = () => {
     return (
-      <div className="p-4 w-full md:w-96">
+      <div className="w-full md:w-96">
         <div className="h-full rounded-sm">
-          <img
-            className="lg:h-48 md:h-36 w-full object-cover object-center"
-            src="https://dummyimage.com/720x400"
-            alt="blog"
-          />
+          <Image src="/sample.svg" width={1000} height={100} alt="blog" />
           <div className="p-5 bg-white dark:bg-gray-900">
             <h2 className="tracking-widest text-xs title-font text-gray-500 dark:text-gray-600 font-medium mb-1">
               CATEGORY
@@ -125,7 +121,7 @@ const Skills = () => {
   };
 
   return (
-    <div className="container p-5 m-auto">
+    <div className="container m-auto">
       <HeaderName name="My Skills" />
 
       <div className="flex flex-wrap -m-4">
@@ -144,7 +140,7 @@ const ContactUs = () => {
   return (
     <div className="container m-auto">
       <HeaderName name="Contact Us" />
-      <div className="container px-5  mx-auto flex sm:flex-nowrap flex-wrap">
+      <div className="container   mx-auto flex sm:flex-nowrap flex-wrap">
         <div className="lg:w-2/3 md:w-1/2 -z-50 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
           <iframe
             width="100%"
@@ -167,7 +163,9 @@ const ContactUs = () => {
               <h2 className="title-font font-semibold text-gray-900 dark:text-gray-50 tracking-widest text-xs">
                 EMAIL
               </h2>
-              <a className="text-indigo-500 leading-relaxed">example@email.com</a>
+              <a className="text-indigo-500 leading-relaxed">
+                example@email.com
+              </a>
               <h2 className="title-font font-semibold text-gray-900 dark:text-gray-50 tracking-widest text-xs mt-4">
                 PHONE
               </h2>
@@ -194,7 +192,6 @@ const ContactUs = () => {
               id="name"
               name="name"
               className="w-full bg-slate-50  dark:text-white rounded-sm dark:bg-gray-800  focus:border-indigo-500 focus:ring-2  text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-
             />
           </div>
           <div className="relative mb-4">
@@ -209,7 +206,6 @@ const ContactUs = () => {
               id="email"
               name="email"
               className="w-full bg-slate-50  dark:text-white rounded-sm dark:bg-gray-800  focus:border-indigo-500 focus:ring-2  text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-
             />
           </div>
           <div className="relative mb-4">
@@ -223,7 +219,6 @@ const ContactUs = () => {
               id="message"
               name="message"
               className="w-full bg-slate-50  dark:text-white rounded-sm dark:bg-gray-800  focus:border-indigo-500 focus:ring-2  h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
-
             ></textarea>
           </div>
           <button className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded-sm text-lg">
@@ -238,7 +233,7 @@ const ContactUs = () => {
 const LandingPage = () => {
   return (
     <section className="text-gray-600 h-screen  body-font  ">
-      <div className="container mx-auto flex px-5 py-10 md:flex-row h-full flex-col items-center">
+      <div className="container mx-auto flex  py-10 md:flex-row h-full flex-col items-center">
         <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex mt-20 md:mt-0 flex-col md:items-start md:text-left mb-16 md:mb-0  ">
           <h1 className="font-semibold flex  items-center text-black dark:text-white text-4xl mb-5">
             I am
@@ -283,7 +278,7 @@ const LandingPage = () => {
 
 const AboutUs = () => {
   return (
-    <div className="container p-5 m-auto">
+    <div className="container  m-auto">
       <HeaderName name="About Us" />
       <div className=" ">
         <div className="w-auto grid place-items-center">
@@ -315,7 +310,7 @@ const AboutUs = () => {
             other web development frameworks.
           </p>
           <div className=" grid place-items-center">
-            <button className="py-2 text-center  px-5 bg-red-600 dark:bg-gray-900 text-lg rounded-sm text-white mt-5 font-bold ">
+            <button className="py-2 text-center   bg-red-600 dark:bg-gray-900 text-lg rounded-sm text-white mt-5 font-bold ">
               Download CV
             </button>
           </div>
