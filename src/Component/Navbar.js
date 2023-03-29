@@ -59,7 +59,7 @@ const Navbar = () => {
   };
   return (
     <>
-      <nav className="py-3 fixed w-full backdrop-blur-xl border shadow-sm dark:border-none dark:shadow-md border-gray-200 ">
+      <nav className="py-3 fixed w-full left-0 backdrop-blur-xl border shadow-sm dark:border-none dark:shadow-md border-gray-200 ">
         <div className="container flex flex-wrap items-center justify-between mx-auto">
           <a href="#" className="flex items-center">
             <Image
