@@ -43,7 +43,7 @@ const Navbar = () => {
                 return (
                   <button
                     key={index}
-                    className=" w-full py-2 text-black dark:text-white text-left font-semibold"
+                    className=" w-full py-1 text-black dark:text-white text-left font-semibold"
                     type="button"
                   >
                     <i className={`bi ${i.icon} mr-5`}></i>
@@ -59,24 +59,24 @@ const Navbar = () => {
   };
   return (
     <>
-      <nav className="p-3 fixed w-full bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
+      <nav className="py-3 fixed w-full backdrop-blur-xl border shadow-sm dark:border-none dark:shadow-md border-gray-200 ">
         <div className="container flex flex-wrap items-center justify-between mx-auto">
           <a href="#" className="flex items-center">
             <Image
             width={100}
             height={100}
               src="https://flowbite.com/docs/images/logo.svg"
-              className="h-6 mr-3 sm:h-10"
+              className="h-6  sm:h-10"
               alt="Flowbite Logo"
             />
-            <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
+            <span className="text-xl font-semibold  dark:text-white">
               Gaurav
             </span>
           </a>
           <div
             data-collapse-toggle="navbar-multi-level"
             type="button"
-            className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden dark:text-gray-400 "
+            className="inline-flex items-center py-2  text-sm text-gray-500 rounded-lg md:hidden dark:text-gray-400 "
             aria-controls="navbar-multi-level"
             aria-expanded="false"
           >
@@ -114,7 +114,7 @@ const Navbar = () => {
             className="hidden w-full md:block md:w-auto"
             id="navbar-multi-level"
           >
-            <ul className="flex flex-col p-4 gap-5 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            <ul className="flex flex-col p-4 gap-5 mt-4  rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:">
               {TopNav.map((i, index) => {
                 return (
                   <li key={index}>
