@@ -15,7 +15,7 @@ const Navbar = () => {
   const Drawer = () => {
     return (
       <>
-        <div className={` w-full fixed  ${sidebar} md:hidden`}>
+        <div className={` w-full left-0 fixed  ${sidebar} md:hidden`}>
           <div
             className="w-full h-screen fixed cursor-pointer bg-black opacity-60"
             onClick={() => {
