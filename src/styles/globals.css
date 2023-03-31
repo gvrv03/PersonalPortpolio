@@ -3,14 +3,54 @@
 @tailwind utilities;
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
 
-
-.bGroud{
-    /* background-color: red; */
-    background-image:url("/Background.svg");
+.bGroud {
+  /* background-color: red; */
+  background-image: url("/Background.svg");
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-    width: 0px;
+  width: 0px;
+}
+
+.trans{
+    transition: all 5s ;
+}
+
+/* Background Changing */
+.gradientB {
+  background-color: #f3ec78;
+  background: linear-gradient(90deg, #feac5e, #c779d0, #4bc0c8);
+  background-size: 400% 400%;
+  animation: gradient 9s ease infinite;
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
   }
-  
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Float Animation  */
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+  0% {
+    /* box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.11); */
+    transform: translatey(0px);
+  }
+  50% {
+    /* box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.041); */
+    transform: translatey(-10px);
+  }
+  100% {
+    /* box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.137); */
+    transform: translatey(0px);
+  }
+}

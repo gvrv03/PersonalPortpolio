@@ -6,25 +6,31 @@ import Image from "next/image";
 const Navbar = () => {
   const { theme, setTheme } = useTheme();
   const [isChecked, setIsChecked] = useState(false);
-  const [sidebar, setsidebar] = useState("hidden");
+  const [sidebar, setsidebar] = useState("-left-full");
   function toggleTheme() {
     setIsChecked(!isChecked);
     setTheme(theme === "light" ? "dark" : "light");
   }
 
+
+
+  // let trasnsition ={
+    
+  // }
+
   const Drawer = () => {
     return (
       <>
-        <div className={` w-full left-0 fixed  ${sidebar} md:hidden`}>
+        <div className={` w-full z-50 fixed  trans  ${sidebar} md:hidden`}>
           <div
             className="w-full h-screen fixed cursor-pointer bg-black opacity-60"
             onClick={() => {
-              setsidebar("hidden");
+              setsidebar("-left-full");
             }}
           />
           <div className="z-50 text-black p-5 fixed h-screen bg-white dark:text-white dark:bg-gray-900 w-3/4">
-            <div>
-              <span className="font-bold text-base">Gaurav</span>
+            <div className="text-white">
+              <span className="font-bold text-base text-white">Gaurav</span>
             </div>
             <div className="dark:bg-gray-800 bg-gray-200 flex justify-center items-center mt-5">
               <input
@@ -41,6 +47,7 @@ const Navbar = () => {
             <div className="mt-5 flex flex-col gap-5">
               {TopNav.map((i, index) => {
                 return (
+                  
                   <button
                     key={index}
                     className=" w-full py-1 text-black dark:text-white text-left font-semibold"
@@ -59,7 +66,7 @@ const Navbar = () => {
   };
   return (
     <>
-      <nav className="py-3 px-5 fixed w-full left-0 backdrop-blur-xl border shadow-sm dark:border-none dark:shadow-md border-gray-200 ">
+      <nav className="py-3 px-5 fixed z-50 w-full left-0 backdrop-blur-xl shadow-sm dark:border-none dark:shadow-md ">
         <div className="container flex flex-wrap items-center justify-between mx-auto">
           <a href="#" className="flex items-center">
             <Image
@@ -92,7 +99,7 @@ const Navbar = () => {
             <button
               type="button"
               onClick={() => {
-                setsidebar(sidebar == "hidden" ? "block" : "hidden");
+                setsidebar(sidebar == "-left-full" ? "left-0" : "-left-full");
               }}
             >
               <svg

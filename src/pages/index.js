@@ -3,7 +3,7 @@ import Typewriter from "typewriter-effect";
 
 const HeaderName = (props) => {
   return (
-    <div className="my-10  grid place-items-center">
+    <div className="my-10 mt-20 grid place-items-center">
       <h2 className=" text-4xl font-bold">{props.name}</h2>
       <div className="h-1 w-16 bg-red-600 rounded mt-5"></div>
     </div>
@@ -81,7 +81,7 @@ const FeatureBlog = () => {
   return (
     <div className="container  m-auto">
       <HeaderName name="Blog" />
-      <div className="flex  flex-wrap items-center  justify-center   gap-5">
+      <div className="flex  flex-wrap items-center  justify-center  gap-5">
         <BlogCard />
         <BlogCard />
         <BlogCard />
@@ -129,7 +129,7 @@ const Skills = () => {
         <SkillCard />
         <SkillCard />
       </div>
-      <button className="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+      <button className="flex mx-auto mt-16 text-white border-0 py-2 px-8 focus:outline-none bg-indigo-500 dark:bg-red-500  dark:hover:bg-red-600 hover:bg-indigo-600  rounded text-lg">
         More
       </button>
     </div>
@@ -221,7 +221,7 @@ const ContactUs = () => {
               className="w-full bg-slate-50  dark:text-white rounded-sm dark:bg-gray-800  focus:border-indigo-500 focus:ring-2  h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
             ></textarea>
           </div>
-          <button className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded-sm text-lg">
+          <button className="text-white bg-indigo-500 dark:bg-red-500  dark:hover:bg-red-600 hover:bg-indigo-600  border-0 py-2 px-6 focus:outline-nonerounded-sm text-lg">
             Send Message
           </button>
         </div>
@@ -232,44 +232,35 @@ const ContactUs = () => {
 
 const LandingPage = () => {
   return (
-    <section className="text-gray-600 h-screen  body-font  ">
-      <div className="container mx-auto flex  py-10 md:flex-row h-full flex-col items-center">
-        <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex mt-20 md:mt-0 flex-col md:items-start md:text-left mb-16 md:mb-0  ">
-          <h1 className="font-semibold flex  items-center text-black dark:text-white text-4xl mb-5">
-            I am
-            <span className="ml-2 font-bold -z-50 text-red-600 text-center ">
-              <Typewriter
-                options={{
-                  strings: ["Web Developer", "Software Developer"],
-                  autoStart: true,
-                  loop: true,
-                }}
-              />
-            </span>
-          </h1>
-          <p className="mb-8 leading-relaxed dark:text-slate-200">
-            Hi there! Im a passionate web developer with a love for all things
-            digital. I have been in the industry for over 2 years, and during
-            that time, I have honed my skills in HTML, CSS, JavaScript, and
-            other web development frameworks.
-          </p>
-          <div className="">
-            <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-              Sign In
-            </button>
-            <button className="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">
-              Hire me
-            </button>
+    <section className="text-gray-600 gradientB  -mx-10 h-screen  body-font  ">
+      <div className="container mx-auto justify-center flex-col flex pt-10 h-full items-center">
+        <div className=" relative w-2/4 h-2/4 flex items-center justify-center">
+          <div className=" rounded-full overflow-hidden md:h-96 md:w-96   w-60 h-60 grid place-items-center p-10 border-8 shadow-2xl  border-white ">
+            <Image width={300} height={100} src="/gaurav.svg" />
           </div>
+          {/* <div className="absolute left-16 px-10 py-5 float  dark:text-white border border-gray-500 backdrop-blur-md rounded-sm top-5">
+              Web Developer
+            </div> */}
         </div>
-        <div className="lg:max-w-lg lg:w-full md:w-1/2 bg-red-500 w-5/6">
-          <Image
-            width={1000}
-            height={500}
-            className="object-cover object-center rounded"
-            alt="hero"
-            src="/hero2.gif"
+        <h1 className="md:text-7xl mt-0 md:mt-10 text-3xl flex text-white font-bold">
+         <span className="mr-3"> I am   </span>
+          <Typewriter
+            options={{
+              strings: ["Web Developer", "Software Developer"],
+              autoStart: true,
+              loop: true,
+            }}
           />
+        </h1>
+        <h3 className="text-xl text-gray-200 mt-5 font-bold">
+          Based in Maharashtra, India.
+        </h3>
+
+        <div className=" text-white relative font-bold float mt-20 flex gap-5 justify-center items-center px-20 py-5 rounded-full">
+          <div className=" w-10 rounded-full h-20 grid place-items-center border-2">
+            <div className="w-1 bg-white h-10"/>
+          </div>
+          <div>Swipe Up</div>
         </div>
       </div>
     </section>
@@ -281,19 +272,19 @@ const AboutUs = () => {
     <div className="container  m-auto">
       <HeaderName name="About Us" />
       <div className=" ">
-        <div className="w-auto grid place-items-center">
+        <div className="-z-50 w-auto h-80 rounded-full  overflow-hidden grid place-items-center">
           <Image
             width={300}
             height={100}
             className="object-cover object-center rounded"
             alt="hero"
-            src="/hero2.gif"
+            src="/gaurav.svg"
           />
         </div>
-        <div className="text-justify w-full mt-5">
+        <div className="text-justify w-full mt-10">
           <h3 className="font-semibold flex  items-center justify-center text-2xl mb-5">
             I am
-            <span className="ml-2 font-bold  text-red-600 text-center dark:text-gray-100">
+            <span className="ml-2 font-bold  text-red-600 text-center ">
               <Typewriter
                 options={{
                   strings: ["Web Developer", "Software Developer"],
@@ -303,14 +294,14 @@ const AboutUs = () => {
               />
             </span>
           </h3>
-          <p>
+          <p className="text-center">
             Hi there! Im a passionate web developer with a love for all things
             digital. I have been in the industry for over 2 years, and during
             that time, I have honed my skills in HTML, CSS, JavaScript, and
             other web development frameworks.
           </p>
           <div className=" grid place-items-center">
-            <button className="py-2 text-center   bg-red-600 dark:bg-gray-900 text-lg rounded-sm text-white mt-5 font-bold ">
+            <button className="py-2 text-center px-10  bg-indigo-500 dark:bg-red-500  dark:hover:bg-red-600 hover:bg-indigo-600   text-lg rounded-sm text-white mt-5 font-bold ">
               Download CV
             </button>
           </div>
