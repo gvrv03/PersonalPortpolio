@@ -13,10 +13,12 @@
   width: 0px;
 }
 
-.trans{
-    transition: all 5s ;
+.trans {
+  transition: all 5s;
 }
-
+.h-90 {
+  height: 90%;
+}
 /* Background Changing */
 .gradientB {
   background-color: #f3ec78;

@@ -2,6 +2,7 @@ import TopNav from "gauravnarnaware/NavItem/TopNav";
 import React, { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import Image from "next/image";
+import Link from "next/link";
 
 const Navbar = () => {
   const { theme, setTheme } = useTheme();
@@ -12,10 +13,8 @@ const Navbar = () => {
     setTheme(theme === "light" ? "dark" : "light");
   }
 
-
-
   // let trasnsition ={
-    
+
   // }
 
   const Drawer = () => {
@@ -47,15 +46,18 @@ const Navbar = () => {
             <div className="mt-5 flex flex-col gap-5">
               {TopNav.map((i, index) => {
                 return (
-                  
-                  <button
-                    key={index}
-                    className=" w-full py-1 text-black dark:text-white text-left font-semibold"
-                    type="button"
-                  >
-                    <i className={`bi ${i.icon} mr-5`}></i>
-                    {i.name}
-                  </button>
+                  <Link href={i.location} key={index}>
+                    <button
+                      onClick={() => {
+                        setsidebar("-left-full");
+                      }}
+                      className=" w-full py-1 text-black dark:text-white text-left font-semibold"
+                      type="button"
+                    >
+                      <i className={`bi ${i.icon} mr-5`}></i>
+                      {i.name}
+                    </button>
+                  </Link>
                 );
               })}
             </div>
@@ -66,7 +68,7 @@ const Navbar = () => {
   };
   return (
     <>
-      <nav className="py-3 px-5 fixed z-50 w-full left-0 backdrop-blur-xl shadow-sm dark:border-none dark:shadow-md ">
+      <nav className="py-3 px-5 fixed z-50 w-full left-0 backdrop-blur-xl dark:border-none shadow-md ">
         <div className="container flex flex-wrap items-center justify-between mx-auto">
           <a href="#" className="flex items-center">
             <Image
@@ -75,6 +77,7 @@ const Navbar = () => {
               src="https://flowbite.com/docs/images/logo.svg"
               className="h-6  sm:h-10"
               alt="Flowbite Logo"
+              style={{width:"auto",height:"auto"}}
             />
             <span className="text-xl ml-2 font-semibold  dark:text-white">
               Gaurav
@@ -87,6 +90,8 @@ const Navbar = () => {
             aria-controls="navbar-multi-level"
             aria-expanded="false"
           >
+              <Link href="/SignIn" className="text-white mr-5 bg-indigo-500 dark:bg-red-500  dark:hover:bg-red-600 hover:bg-indigo-600 px-5 py-1 rounded-sm">Sign In</Link>
+
             <label className="relative inline-flex mr-5 items-center cursor-pointer">
               <input
                 type="checkbox"
@@ -98,6 +103,7 @@ const Navbar = () => {
             </label>
             <button
               type="button"
+              className="dark:text-white"
               onClick={() => {
                 setsidebar(sidebar == "-left-full" ? "left-0" : "-left-full");
               }}
@@ -125,17 +131,21 @@ const Navbar = () => {
               {TopNav.map((i, index) => {
                 return (
                   <li key={index}>
-                    <a
-                      href="#"
+                    <Link
+                      href={i.location}
                       className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-white dark:bg-blue-600 md:dark:bg-transparent"
                       aria-current="page"
                     >
                       <i className={`bi ${i.icon} mr-3 `}></i>
                       {i.name}
-                    </a>
+                    </Link>
                   </li>
                 );
               })}
+
+<Link href="/SignIn" className="text-white mr-5 bg-indigo-500 dark:bg-red-500  dark:hover:bg-red-600 hover:bg-indigo-600 px-5 py-1 rounded-sm">Sign In</Link>
+
+
               <label className="relative inline-flex items-center cursor-pointer">
                 <input
                   type="checkbox"
