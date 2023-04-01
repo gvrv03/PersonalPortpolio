@@ -25,7 +25,7 @@ const ErrorPage = () => {
           404 - Page not found
         </h1>
         <p className="text-slate-600 mt-5 lg:text-lg">
-          The page you are looking for doesn't exist or <br />
+          The page you are looking for doesn&apos;t exist or <br />
           has been removed.
         </p>
       </div>
