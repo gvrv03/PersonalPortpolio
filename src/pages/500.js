@@ -27,10 +27,10 @@ const ServerError = () => {
             </svg>
           </div>
         </div>
-        <h1 className="mt-5 text-[36px] font-bold text-slate-800 lg:text-[50px]">
+        <h1 className="mt-5 text-[36px] font-bold lg:text-[50px]">
           500 - Server error
         </h1>
-        <p className="text-slate-600 mt-5 lg:text-lg">
+        <p className="text-slate-400 mt-5 lg:text-lg">
           Oops something went wrong. Try to refresh this page or <br /> feel
           free to contact us if the problem presists.
         </p>

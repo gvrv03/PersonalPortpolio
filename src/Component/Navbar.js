@@ -90,7 +90,7 @@ const Navbar = () => {
             aria-controls="navbar-multi-level"
             aria-expanded="false"
           >
-              <Link href="/SignIn" className="text-white mr-5 bg-indigo-500 dark:bg-red-500  dark:hover:bg-red-600 hover:bg-indigo-600 px-5 py-1 rounded-sm">Sign In</Link>
+              <Link href="/SignIn" className="text-white mr-5 bg-indigo-500 dark:bg-red-500  dark:hover:bg-red-600 hover:bg-indigo-600 px-5 py-0 rounded-sm">Sign In</Link>
 
             <label className="relative inline-flex mr-5 items-center cursor-pointer">
               <input

@@ -166,11 +166,14 @@ const ContactUs = () => {
 
 const LandingPage = () => {
   return (
-    <section className="text-gray-600 gradientB  -mx-10 h-screen  body-font  ">
+    <section className="text-gray-600 gradientB  h-screen -mx-5 body-font  ">
       <div className="container mx-auto justify-center flex-col flex pt-10 h-full items-center">
         <div className=" relative w-2/4 h-2/4 flex items-center justify-center">
           <div className=" rounded-full overflow-hidden md:h-96 md:w-96   w-60 h-60 grid place-items-center p-10 border-8 shadow-2xl  border-white ">
-            <Image width={300} height={100} alt="Gaurav Narnaware" style={{width:"auto",height:"auto"}} src="/gaurav.svg" />
+            <Image width={300} height={100} alt="Gaurav Narnaware" 
+            
+            // style={{width:"auto",height:"auto"}} 
+            src="/gaurav.svg" />
           </div>
           {/* <div className="absolute left-16 px-10 py-5 float  dark:text-white border border-gray-500 backdrop-blur-md rounded-sm top-5">
               Web Developer
@@ -212,7 +215,7 @@ const AboutUs = () => {
             height={100}
             className="object-cover object-center rounded"
             alt="hero"
-            style={{width:"auto",height:"auto"}}
+            // style={{width:"auto",height:"auto"}}
             src="/gaurav.svg"
           />
         </div>
