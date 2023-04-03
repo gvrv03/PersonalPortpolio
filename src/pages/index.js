@@ -1,7 +1,10 @@
+import AllSkills from "gauravnarnaware/Component/AllSkills";
 import BlogCard from "gauravnarnaware/Component/BlogCard";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import Typewriter from "typewriter-effect";
-
+import { useContext } from "react";
+import portpolioContext from "../../lib/Context/portpolioContext";
 const HeaderName = (props) => {
   return (
     <div className="my-10 mt-20 grid place-items-center">
@@ -11,7 +14,6 @@ const HeaderName = (props) => {
   );
 };
 const FeatureBlog = () => {
-  
   return (
     <div className="container  m-auto">
       <HeaderName name="Blog" />
@@ -54,6 +56,7 @@ const Skills = () => {
     );
   };
 
+  const [modalState, setmodalState] = useState("hidden");
   return (
     <div className="container m-auto">
       <HeaderName name="My Skills" />
@@ -63,9 +66,16 @@ const Skills = () => {
         <SkillCard />
         <SkillCard />
       </div>
-      <button className="flex mx-auto mt-16 text-white border-0 py-2 px-8 focus:outline-none bg-indigo-500 dark:bg-red-500  dark:hover:bg-red-600 hover:bg-indigo-600  rounded text-lg">
+      <button
+        onClick={() => {
+          setmodalState("grid");
+        }}
+        className="flex mx-auto mt-16 text-white border-0 py-2 px-8 focus:outline-none bg-indigo-500 dark:bg-red-500  dark:hover:bg-red-600 hover:bg-indigo-600  rounded text-lg"
+      >
         More
       </button>
+
+      <AllSkills mState={modalState} fun={setmodalState} />
     </div>
   );
 };
@@ -107,13 +117,13 @@ const ContactUs = () => {
             </div>
           </div>
         </div>
-        <div className="lg:w-1/3 md:w-1/2 bg-white p-5 rounded-sm shadow-sm dark:bg-gray-900 flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
+        <div className="lg:w-1/3 md:w-1/2 bg-white p-5 -z-50 rounded-sm shadow-sm dark:bg-gray-900 flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
           <h2 className="text-gray-900 dark:text-white text-lg mb-1 text-center font-medium title-font">
             Contact Us
           </h2>
-          <p className="leading-relaxed mb-5 text-gray-600 dark:text-gray-300">
+          {/* <p className="leading-relaxed mb-5 text-gray-600 dark:text-gray-300">
             Post-ironic portland shabby chic echo park, banjo fashion axe
-          </p>
+          </p> */}
           <div className="relative mb-4">
             <label
               htmlFor="name"
@@ -125,6 +135,20 @@ const ContactUs = () => {
               type="text"
               id="name"
               name="name"
+              className="w-full bg-slate-50  dark:text-white rounded-sm dark:bg-gray-800  focus:border-indigo-500 focus:ring-2  text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+            />
+          </div>
+          <div className="relative mb-4">
+            <label
+              htmlFor="subject"
+              className="leading-7 text-sm dark:text-gray-300 text-gray-600"
+            >
+              Subject
+            </label>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
               className="w-full bg-slate-50  dark:text-white rounded-sm dark:bg-gray-800  focus:border-indigo-500 focus:ring-2  text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
             />
           </div>
@@ -165,22 +189,30 @@ const ContactUs = () => {
 };
 
 const LandingPage = () => {
+  const context = useContext(portpolioContext);
+  const { theme } = context;
   return (
-    <section className="text-gray-600 gradientB  h-screen -mx-5 body-font  ">
+    <section
+      className={`text-gray-600 ${
+        theme == "light" ? "gradientA" : "gradientB"
+      } gradientA h-screen -mx-5 body-font `}
+    >
       <div className="container mx-auto justify-center flex-col flex pt-10 h-full items-center">
         <div className=" relative w-2/4 h-2/4 flex items-center justify-center">
           <div className=" rounded-full overflow-hidden md:h-96 md:w-96   w-60 h-60 grid place-items-center p-10 border-8 shadow-2xl  border-white ">
-            <Image width={300} height={100} alt="Gaurav Narnaware" 
-            
-            // style={{width:"auto",height:"auto"}} 
-            src="/gaurav.svg" />
+            <Image
+              width={500}
+              height={500}
+              alt="Gaurav Narnaware"
+              src="/gaurav.svg"
+            />
           </div>
           {/* <div className="absolute left-16 px-10 py-5 float  dark:text-white border border-gray-500 backdrop-blur-md rounded-sm top-5">
               Web Developer
             </div> */}
         </div>
         <h1 className="md:text-7xl mt-0 md:mt-10 text-3xl flex text-white font-bold">
-         <span className="mr-3"> I am   </span>
+          <span className="mr-3"> I am </span>
           <Typewriter
             options={{
               strings: ["Web Developer", "Software Developer"],
@@ -195,7 +227,7 @@ const LandingPage = () => {
 
         <div className=" text-white relative font-bold float mt-20 flex gap-5 justify-center items-center px-20 py-5 rounded-full">
           <div className=" w-10 rounded-full h-20 grid place-items-center border-2">
-            <div className="w-1 bg-white h-10"/>
+            <div className="w-1 bg-white h-10" />
           </div>
           <div>Swipe Up</div>
         </div>

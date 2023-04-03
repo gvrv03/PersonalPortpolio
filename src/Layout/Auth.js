@@ -3,7 +3,7 @@ import React from "react";
 const Auth = ({ children }) => {
   return (
     <>
-      <div className="flex flex-col items-center  container justify-center px-8 py-8 mx-auto h-screen lg:py-0">
+      <div className="flex flex-col items-center  container justify-center  py-8 mx-auto h-screen lg:py-0">
         {children}
         <div className="w-full bg-white rounded-sm shadow-lg  grid place-items-center sm:max-w-md p-5  dark:bg-gray-900 dark:border-gray-700">
         <h1 className=" text-2xl font-bold pb-5">OR</h1>

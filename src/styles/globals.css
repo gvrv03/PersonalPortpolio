@@ -14,18 +14,31 @@
 }
 
 .trans {
-  transition: all 5s;
+  transition: all 5s ease;
 }
+
+/* background black  */
+.blackBg {
+  background-color: rgba(0, 0, 0, 0.678);
+}
+
 .h-90 {
   height: 90%;
 }
 /* Background Changing */
-.gradientB {
+.gradientA {
   background-color: #f3ec78;
   background: linear-gradient(90deg, #feac5e, #c779d0, #4bc0c8);
   background-size: 400% 400%;
   animation: gradient 9s ease infinite;
 }
+.gradientB {
+  background-color: #1f2937;
+  background: linear-gradient(90deg, #1f2937, #1f1d31, #5b4272);
+  background-size: 400% 400%;
+  animation: gradient 9s ease infinite;
+}
+
 @keyframes gradient {
   0% {
     background-position: 0% 50%;

@@ -1,35 +1,28 @@
 import TopNav from "gauravnarnaware/NavItem/TopNav";
 import React, { useEffect, useState } from "react";
-import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
+import { useContext } from "react";
+import portpolioContext from "../../lib/Context/portpolioContext";
 
 const Navbar = () => {
-  const { theme, setTheme } = useTheme();
-  const [isChecked, setIsChecked] = useState(false);
   const [sidebar, setsidebar] = useState("-left-full");
-  function toggleTheme() {
-    setIsChecked(!isChecked);
-    setTheme(theme === "light" ? "dark" : "light");
-  }
-
-  // let trasnsition ={
-
-  // }
+  const context = useContext(portpolioContext);
+  const { toggleTheme, isChecked } = context;
 
   const Drawer = () => {
     return (
       <>
-        <div className={` w-full z-50 fixed  trans  ${sidebar} md:hidden`}>
+        <div className={` w-full z-50 fixed   ${sidebar} md:hidden`}>
           <div
-            className="w-full h-screen fixed cursor-pointer bg-black opacity-60"
+            className="w-full h-screen fixed cursor-pointer backdrop-blur-sm"
             onClick={() => {
               setsidebar("-left-full");
             }}
           />
           <div className="z-50 text-black p-5 fixed h-screen bg-white dark:text-white dark:bg-gray-900 w-3/4">
             <div className="text-white">
-              <span className="font-bold text-base text-white">Gaurav</span>
+              <span className="font-bold text-base ">Gaurav</span>
             </div>
             <div className="dark:bg-gray-800 bg-gray-200 flex justify-center items-center mt-5">
               <input
@@ -43,7 +36,7 @@ const Navbar = () => {
                 </button>
               </div>
             </div>
-            <div className="mt-5 flex flex-col gap-5">
+            <div className="mt-5 flex flex-col trans gap-5">
               {TopNav.map((i, index) => {
                 return (
                   <Link href={i.location} key={index}>
@@ -77,9 +70,9 @@ const Navbar = () => {
               src="https://flowbite.com/docs/images/logo.svg"
               className="h-6  sm:h-10"
               alt="Flowbite Logo"
-              style={{width:"auto",height:"auto"}}
+              style={{ width: "auto", height: "auto" }}
             />
-            <span className="text-xl ml-2 font-semibold  dark:text-white">
+            <span className="text-xl ml-2 font-semibold  text-white">
               Gaurav
             </span>
           </a>
@@ -90,7 +83,12 @@ const Navbar = () => {
             aria-controls="navbar-multi-level"
             aria-expanded="false"
           >
-              <Link href="/SignIn" className="text-white mr-5 bg-indigo-500 dark:bg-red-500  dark:hover:bg-red-600 hover:bg-indigo-600 px-5 py-0 rounded-sm">Sign In</Link>
+            <Link
+              href="/SignIn"
+              className="text-white mr-5 bg-indigo-500 dark:bg-red-500  dark:hover:bg-red-600 hover:bg-indigo-600 px-5 py-0 rounded-sm"
+            >
+              Sign In
+            </Link>
 
             <label className="relative inline-flex mr-5 items-center cursor-pointer">
               <input
@@ -133,7 +131,7 @@ const Navbar = () => {
                   <li key={index}>
                     <Link
                       href={i.location}
-                      className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-white dark:bg-blue-600 md:dark:bg-transparent"
+                      className="block py-2 pl-3 pr-4 rounded md:bg-transparent  md:p-0   md:dark:bg-transparent"
                       aria-current="page"
                     >
                       <i className={`bi ${i.icon} mr-3 `}></i>
@@ -143,8 +141,12 @@ const Navbar = () => {
                 );
               })}
 
-<Link href="/SignIn" className="text-white mr-5 bg-indigo-500 dark:bg-red-500  dark:hover:bg-red-600 hover:bg-indigo-600 px-5 py-1 rounded-sm">Sign In</Link>
-
+              <Link
+                href="/SignIn"
+                className="text-white mr-5 bg-indigo-500 dark:bg-red-500  dark:hover:bg-red-600 hover:bg-indigo-600 px-5 py-1 rounded-sm"
+              >
+                Sign In
+              </Link>
 
               <label className="relative inline-flex items-center cursor-pointer">
                 <input
