@@ -190,12 +190,12 @@ const ContactUs = () => {
 
 const LandingPage = () => {
   const context = useContext(portpolioContext);
-  const { theme } = context;
+  const { theme,themeMode } = context;
   return (
     <section
       className={`text-gray-600 ${
-        theme == "light" ? "gradientA" : "gradientB"
-      } gradientA h-screen -mx-5 body-font `}
+        themeMode == "light" ? "gradientA" : "gradientB"
+      }  h-screen -mx-5 body-font `}
     >
       <div className="container mx-auto justify-center flex-col flex pt-10 h-full items-center">
         <div className=" relative w-2/4 h-2/4 flex items-center justify-center">

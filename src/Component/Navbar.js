@@ -8,7 +8,7 @@ import portpolioContext from "../../lib/Context/portpolioContext";
 const Navbar = () => {
   const [sidebar, setsidebar] = useState("-left-full");
   const context = useContext(portpolioContext);
-  const { toggleTheme, isChecked } = context;
+  const { toggleTheme, isChecked, theme, themeMode } = context;
 
   const Drawer = () => {
     return (
@@ -90,14 +90,21 @@ const Navbar = () => {
               Sign In
             </Link>
 
-            <label className="relative inline-flex mr-5 items-center cursor-pointer">
+            <label className="relative inline-flex gap-5 mr-5 items-center cursor-pointer">
               <input
                 type="checkbox"
-                checked={isChecked}
+                checked={themeMode == "light" ? true : false}
                 onChange={toggleTheme}
                 className="sr-only peer "
               />
-              <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4   rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600"></div>
+              <div className="w-11 h-6 bg-gray-200   rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600"></div>
+              <i
+                className={`bi ${
+                  themeMode == "light"
+                    ? " bi-moon-stars-fill text-black"
+                    : "bi-brightness-high-fill "
+                }   text-lg`}
+              ></i>
             </label>
             <button
               type="button"
@@ -148,14 +155,21 @@ const Navbar = () => {
                 Sign In
               </Link>
 
-              <label className="relative inline-flex items-center cursor-pointer">
+              <label className="relative inline-flex gap-5 items-center cursor-pointer">
                 <input
                   type="checkbox"
-                  checked={isChecked}
+                  checked={themeMode == "light" ? true : false}
                   onChange={toggleTheme}
                   className="sr-only peer "
                 />
                 <div className="w-11 h-6 bg-gray-200   rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600"></div>
+                <i
+                  className={`bi ${
+                    themeMode == "light"
+                      ? " bi-moon-stars-fill text-black"
+                      : "bi-brightness-high-fill "
+                  }   text-lg`}
+                ></i>
               </label>
             </ul>
           </div>
