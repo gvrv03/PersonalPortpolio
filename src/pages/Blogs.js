@@ -5,6 +5,7 @@ import React from "react";
 import { getBlogs } from "../../lib/Functions/getBlogs";
 
 const Blogs = ({ blogs }) => {
+  console.log(blogs);
   return (
     <BlogsLayout>
       <div className="h-full ">
