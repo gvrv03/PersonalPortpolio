@@ -3,6 +3,7 @@ import BlogCard from "gauravnarnaware/Component/BlogCard";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import Typewriter from "typewriter-effect";
+
 import { useContext } from "react";
 import portpolioContext from "../../lib/Context/portpolioContext";
 const HeaderName = (props) => {
