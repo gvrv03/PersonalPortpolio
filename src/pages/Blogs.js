@@ -2,8 +2,9 @@ import Link from "next/link";
 import BlogCard from "gauravnarnaware/Component/BlogCard";
 import BlogsLayout from "gauravnarnaware/Layout/BlogsLayout";
 import React from "react";
+import { getBlogs } from "../../lib/Functions/getBlogs";
 
-const Blogs = () => {
+const Blogs = ({ blogs }) => {
   return (
     <BlogsLayout>
       <div className="h-full ">
@@ -58,22 +59,30 @@ const Blogs = () => {
         </nav>
 
         <section className="mt-5 grid grid-cols-1  h-90 md:grid-cols-3 gap-5 justify-between overflow-y-scroll flex-wrap ">
-          <BlogCard />
-          <BlogCard />
-
-          <BlogCard />
-          <BlogCard />
-          <BlogCard />
-          <BlogCard />
-          <BlogCard />
-          <BlogCard />
-          <BlogCard />
-          <BlogCard />
-          <BlogCard />
+          {blogs.map((i, index) => {
+            return (
+              <BlogCard
+                key={index}
+                title={i.title}
+                category={i.category}
+                description={i.description.substring(0, 100) + "..."}
+                image={i.image}
+                id={i._id}
+                views={i.views}
+              />
+            );
+          })}
         </section>
       </div>
     </BlogsLayout>
   );
 };
+
+export async function getServerSideProps() {
+  const data = await getBlogs();
+  return {
+    props: { blogs: data },
+  };
+}
 
 export default Blogs;
