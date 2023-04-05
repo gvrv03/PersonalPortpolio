@@ -1,8 +1,38 @@
 import Auth from "gauravnarnaware/Layout/Auth";
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
+import { useUserAuth } from "../../lib/Context/UserAuthContext";
+import { useRouter } from "next/router";
 
 const SignIn = () => {
+  const [userData, setuserData] = useState({});
+  const [requiredState, setRequired] = useState(false);
+  const { signUIn, user } = useUserAuth();
+  const [msg, setmsg] = useState("");
+  const router = useRouter();
+
+  if (user) {
+    router.push("/");
+  }
+  const onChange = (e) => {
+    setuserData({
+      ...userData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setmsg("");
+    try {
+      await signUIn(userData.email, userData.password);
+      // localStorage.setItem("accessToken", user.accessToken);
+      router.push("/");
+    } catch (error) {
+      setmsg(error.code);
+    }
+  };
+  console.log(userData);
   return (
     <Auth>
       <div className="w-full bg-white rounded-sm shadow-lg md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-900 dark:border-gray-700">
@@ -10,35 +40,37 @@ const SignIn = () => {
           <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 text-center md:text-2xl dark:text-white">
             Sign In
           </h1>
-          <form className="space-y-4 md:space-y-6" action="#">
+          <h3>{msg}</h3>
+
+          <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
             <div>
-              <label
-                htmlFor="email"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >
+              <div className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                 Your email
-              </label>
+              </div>
               <input
                 type="email"
+                required={requiredState}
+                onChange={onChange}
                 id="email"
+                // value={setuserData.email ? setuserData.email : ""}
+                name="email"
                 className=" text-gray-900 sm:text-sm rounded-sm focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 outline-none bg-gray-100 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="name@company.com"
               />
             </div>
             <div>
-              <label
-                htmlFor="password"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >
+              <div className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                 Password
-              </label>
+              </div>
               <input
                 type="password"
-                name="password"
+                required={requiredState}
+                onChange={onChange}
                 id="password"
+                // value={setuserData.password ? setuserData.password : ""}
+                name="password"
                 placeholder="••••••••"
                 className=" text-gray-900 sm:text-sm rounded-sm focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 outline-none bg-gray-100 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                required=""
               />
             </div>
             <div className="flex items-center justify-between">

@@ -8,26 +8,27 @@ import PortpolioState from "../../lib/Context/PortpolioState";
 // import reportWebVitals from "../../reportWebVitals";
 import Router from "next/router";
 
-
 import NProgress from "nprogress"; //nprogress module
 import "nprogress/nprogress.css"; //styles of nprogress
+import { UserAuthContexProvider } from "../../lib/Context/UserAuthContext";
 Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
 NProgress.configure({ showSpinner: false });
 
-
 export default function App({ Component, pageProps }) {
   return (
     <ThemeProvider attribute="class">
-      <PortpolioState>
-        <Navbar />
-        <Component {...pageProps} />
-        <Footer />
-        <ScrollToTop showUnder={160}>
-          <i className="bi text-3xl text-red-600 bi-arrow-up-square-fill"></i>
-        </ScrollToTop>
-      </PortpolioState>
+      <UserAuthContexProvider>
+        <PortpolioState>
+          <Navbar />
+          <Component {...pageProps} />
+          <Footer />
+          <ScrollToTop showUnder={160}>
+            <i className="bi text-3xl text-red-600 bi-arrow-up-square-fill"></i>
+          </ScrollToTop>
+        </PortpolioState>
+      </UserAuthContexProvider>
     </ThemeProvider>
   );
 }

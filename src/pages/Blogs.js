@@ -7,6 +7,8 @@ import { getAllBlogsURL, getSingleURL } from "../../allLinks";
 import baseUrl from "../../baseUrl";
 
 const Blogs = ({ blogs }) => {
+
+
   return (
     <BlogsLayout>
       <div className="h-full ">

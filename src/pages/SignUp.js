@@ -1,8 +1,40 @@
 import Auth from "gauravnarnaware/Layout/Auth";
 import React from "react";
 import Link from "next/link";
+import { useState } from "react";
+import { useUserAuth } from "../../lib/Context/UserAuthContext";
+import { async } from "@firebase/util";
+import { set } from "nprogress";
+import { useRouter } from "next/router";
 
 const SignIn = () => {
+  const [userData, setuserData] = useState({});
+  const { signUp, user } = useUserAuth();
+  const [requiredState, setRequired] = useState(false);
+  const [msg, setmsg] = useState("");
+  const router = useRouter();
+  const onChange = (e) => {
+    setuserData({
+      ...userData,
+      [e.target.name]: e.target.value,
+    });
+  };
+  if (user) {
+    router.push("/");
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setmsg("");
+    try {
+      await signUp(userData.email, userData.password);
+      console.log(user);
+      router.push("/SignIn");
+    } catch (error) {
+      setmsg(error.code);
+    }
+  };
+  console.log(userData);
   return (
     <Auth>
       <div className="w-full bg-white rounded-sm shadow-lg md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-900 dark:border-gray-700">
@@ -10,8 +42,9 @@ const SignIn = () => {
           <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 text-center md:text-2xl dark:text-white">
             Sign Up
           </h1>
-          <form className="space-y-4 md:space-y-6" action="#">
-            <div>
+          <h3>{msg}</h3>
+          <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
+            {/* <div>
               <label
                 htmlFor="Name"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -20,11 +53,13 @@ const SignIn = () => {
               </label>
               <input
                 type="text"
-                id="name"
+                required={requiredState}
+                onChange={onChange}
+                name="userName"
                 className=" text-gray-900 sm:text-sm rounded-sm  outline-none block w-full p-2.5 bg-gray-100 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white "
                 placeholder="Your Name"
               />
-            </div>
+            </div> */}
             <div>
               <label
                 htmlFor="email"
@@ -35,6 +70,9 @@ const SignIn = () => {
               <input
                 type="email"
                 id="email"
+                required={requiredState}
+                onChange={onChange}
+                name="email"
                 className=" text-gray-900 sm:text-sm rounded-sm  outline-none block w-full p-2.5 bg-gray-100 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white "
                 placeholder="name@company.com"
               />
@@ -48,14 +86,15 @@ const SignIn = () => {
               </label>
               <input
                 type="password"
+                required={requiredState}
+                onChange={onChange}
                 name="password"
                 id="password"
                 placeholder="••••••••"
                 className=" text-gray-900 sm:text-sm rounded-sm  outline-none block w-full p-2.5 bg-gray-100 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white "
-                required=""
               />
             </div>
-            <div>
+            {/* <div>
               <label
                 htmlFor="cpassword"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -64,13 +103,13 @@ const SignIn = () => {
               </label>
               <input
                 type="password"
-                name="cpassword"
-                id="password"
+                required={requiredState}
+                onChange={onChange}
+                name="cPassword"
                 placeholder="••••••••"
                 className=" text-gray-900 sm:text-sm rounded-sm  outline-none block w-full p-2.5 bg-gray-100 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white "
-                required=""
               />
-            </div>
+            </div> */}
 
             <p className="text-xs text-justify">
               By clicking Sign Up, you agree to our Terms, Privacy Policy and

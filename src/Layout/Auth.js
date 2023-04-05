@@ -1,14 +1,26 @@
 import React from "react";
+import { useUserAuth } from "../../lib/Context/UserAuthContext";
+import { useRouter } from "next/router";
 
 const Auth = ({ children }) => {
+  const { signWithGoogle } = useUserAuth();
+  const handleGoogleSignIn = async (e) => {
+    e.preventDefault();
+    try {
+      await signWithGoogle();
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
   return (
     <>
       <div className="flex flex-col items-center  container justify-center  py-8 mx-auto h-screen lg:py-0">
         {children}
         <div className="w-full bg-white rounded-sm shadow-lg  grid place-items-center sm:max-w-md p-5  dark:bg-gray-900 dark:border-gray-700">
-        <h1 className=" text-2xl font-bold pb-5">OR</h1>
+          <h1 className=" text-2xl font-bold pb-5">OR</h1>
           <button
             type="button"
+            onClick={handleGoogleSignIn}
             className="text-white bg-[#4285F4] flex justify-center   w-full hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-sm text-sm px-5 py-2.5 text-center  items-center dark:focus:ring-[#4285F4]/55 "
           >
             <svg
