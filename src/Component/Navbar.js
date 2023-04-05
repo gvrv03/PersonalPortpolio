@@ -82,7 +82,7 @@ const Navbar = () => {
             aria-expanded="false"
           >
             <Link
-              href="/api/auth/signin"
+              href="/SignIn"
               className="mr-5  border w-6 h-6 grid place-items-center   rounded-full"
             >
               <i class="bi bi-person-fill"></i>
@@ -149,7 +149,7 @@ const Navbar = () => {
               })}
 
               <Link
-                href="/api/auth/signin"
+                href="/SignIn"
                 className=" border w-6 h-6 cursor-pointer grid place-items-center   rounded-full"
               >
                 <i class="bi bi-person-fill"></i>
