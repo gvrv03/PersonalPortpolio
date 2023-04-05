@@ -7,8 +7,6 @@ import { getAllBlogsURL, getSingleURL } from "../../allLinks";
 import baseUrl from "../../baseUrl";
 
 const Blogs = ({ blogs }) => {
-  console.log(getAllBlogsURL);
-  console.log(getSingleURL);
   return (
     <BlogsLayout>
       <div className="h-full ">
