@@ -5,10 +5,10 @@ import { getsingle } from "../../../lib/Functions/getBlogs";
 import Link from "next/link";
 import Image from "next/image";
 
-
 const BlogData = ({ blogs }) => {
   const router = useRouter();
-  const { title, category, description, image, artical, author ,views} = blogs.post
+  const { title, category, description, image, artical, author, views } =
+    blogs.post;
   return (
     <BlogsLayout>
       <div className="bg-white h-full dark:bg-gray-900 p-5 ">
@@ -77,14 +77,19 @@ const BlogData = ({ blogs }) => {
         <div className="overflow-y-scroll h-90">
           <section className="">
             <h1 className="font-bold text-lg md:text-3xl">{title}</h1>
-            <div className="mt-5 flex justify-between text-sm" >
-              <div><span className="font-semibold mr-2">Author:</span>{author}</div>
-              <div> <i className=" bi bi-eye-fill mr-2"></i> {views} </div>
+            <div className="mt-5 flex justify-between text-sm">
+              <div>
+                <span className="font-semibold mr-2">Author:</span>
+                {author}
+              </div>
+              <div>
+                {" "}
+                <i className=" bi bi-eye-fill mr-2"></i> {views}{" "}
+              </div>
             </div>
           </section>
 
           <div className="w-full h-1 bg-gray-200 dark:bg-gray-700 mt-5 rounded-full" />
-
           <section className="mt-5">
             <img src={image} alt={title} />
             <article
@@ -105,6 +110,5 @@ export async function getServerSideProps(context) {
     props: { blogs: data },
   };
 }
-
 
 export default BlogData;
