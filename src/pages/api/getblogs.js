@@ -16,7 +16,6 @@ export default async (req, res) => {
 // To Add Blogs
 const addBlog = async (req, res) => {
   const { title, category, author, image, description, artical } = req.body;
-
   try {
     const blog = await new Blogs({
       title,

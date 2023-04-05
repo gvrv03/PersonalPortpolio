@@ -7,11 +7,8 @@ export default async (req, res) => {
 
   try {
     const filter = { _id: id };
-
     const curView = await Blogs.findOne(filter);
-
     const update = { views: curView.views + 1 };
-
     const addView = await Blogs.findOneAndUpdate(filter, update);
     res
       .status(201)

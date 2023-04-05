@@ -5,7 +5,7 @@ import Navbar from "gauravnarnaware/Component/Navbar";
 import "gauravnarnaware/styles/globals.css";
 import { ThemeProvider } from "next-themes";
 import PortpolioState from "../../lib/Context/PortpolioState";
-import reportWebVitals from "../../reportWebVitals";
+// import reportWebVitals from "../../reportWebVitals";
 import Router from "next/router";
 
 
@@ -32,4 +32,4 @@ export default function App({ Component, pageProps }) {
   );
 }
 
-reportWebVitals(console.log);
+// reportWebVitals(console.log);
