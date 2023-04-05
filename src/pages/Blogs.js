@@ -3,9 +3,12 @@ import BlogCard from "gauravnarnaware/Component/BlogCard";
 import BlogsLayout from "gauravnarnaware/Layout/BlogsLayout";
 import React from "react";
 import { getBlogs } from "../../lib/Functions/getBlogs";
+import { getAllBlogsURL, getSingleURL } from "../../allLinks";
+import baseUrl from "../../baseUrl";
 
 const Blogs = ({ blogs }) => {
-  (blogs);
+  console.log(getAllBlogsURL);
+  console.log(getSingleURL);
   return (
     <BlogsLayout>
       <div className="h-full ">
