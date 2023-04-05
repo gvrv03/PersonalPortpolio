@@ -5,9 +5,11 @@ import { getsingle } from "../../../lib/Functions/getBlogs";
 import Link from "next/link";
 import Image from "next/image";
 
+
 const BlogData = ({ blogs }) => {
   const router = useRouter();
-  const { title, category, description, image, artical, author ,views} = blogs.post;
+  console.log(blogs);
+  const { title, category, description, image, artical, author ,views} = blogs
   return (
     <BlogsLayout>
       <div className="bg-white h-full dark:bg-gray-900 p-5 ">
@@ -104,4 +106,6 @@ export async function getServerSideProps(context) {
     props: { blogs: data },
   };
 }
+
+
 export default BlogData;
