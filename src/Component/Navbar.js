@@ -21,7 +21,7 @@ const Navbar = () => {
             }}
           />
           <div className="z-50 text-black p-5 fixed h-screen bg-white dark:text-white dark:bg-gray-900 w-3/4">
-            <div className="text-white">
+            <div className="">
               <span className="font-bold text-base ">Gaurav</span>
             </div>
             <div className="dark:bg-gray-800 bg-gray-200 flex justify-center items-center mt-5">
@@ -72,9 +72,7 @@ const Navbar = () => {
               alt="Flowbite Logo"
               style={{ width: "auto", height: "auto" }}
             />
-            <span className="text-xl ml-2 font-semibold  text-white">
-              Gaurav
-            </span>
+            <span className="text-xl ml-2 font-semibold  ">Gaurav</span>
           </a>
           <div
             data-collapse-toggle="navbar-multi-level"
@@ -84,10 +82,10 @@ const Navbar = () => {
             aria-expanded="false"
           >
             <Link
-              href="/SignIn"
-              className="text-white mr-5 bg-indigo-500 dark:bg-red-500  dark:hover:bg-red-600 hover:bg-indigo-600 px-5 py-0 rounded-sm"
+              href="/api/auth/signin"
+              className="mr-5  border w-6 h-6 grid place-items-center   rounded-full"
             >
-              Sign In
+              <i class="bi bi-person-fill"></i>
             </Link>
 
             <label className="relative inline-flex gap-5 mr-5 items-center cursor-pointer">
@@ -97,14 +95,16 @@ const Navbar = () => {
                 onChange={toggleTheme}
                 className="sr-only peer "
               />
-              <div className="w-11 h-6 bg-gray-200   rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600"></div>
-              <i
-                className={`bi ${
-                  themeMode == "light"
-                    ? " bi-moon-stars-fill text-black"
-                    : "bi-brightness-high-fill "
-                }   text-lg`}
-              ></i>
+              <div class="w-11 h-6 bg-gray-200   rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+              <span class=" text-sm font-medium text-gray-900 dark:text-gray-300">
+                <i
+                  className={`bi ${
+                    themeMode == "light"
+                      ? " bi-moon-stars-fill text-black"
+                      : "bi-brightness-high-fill "
+                  }   text-base`}
+                ></i>
+              </span>
             </label>
             <button
               type="button"
@@ -149,27 +149,28 @@ const Navbar = () => {
               })}
 
               <Link
-                href="/SignIn"
-                className="text-white mr-5 bg-indigo-500 dark:bg-red-500  dark:hover:bg-red-600 hover:bg-indigo-600 px-5 py-1 rounded-sm"
+                href="/api/auth/signin"
+                className=" border w-6 h-6 cursor-pointer grid place-items-center   rounded-full"
               >
-                Sign In
+                <i class="bi bi-person-fill"></i>
               </Link>
-
-              <label className="relative inline-flex gap-5 items-center cursor-pointer">
+              <label className="relative inline-flex gap items-center cursor-pointer">
                 <input
                   type="checkbox"
                   checked={themeMode == "light" ? true : false}
                   onChange={toggleTheme}
                   className="sr-only peer "
                 />
-                <div className="w-11 h-6 bg-gray-200   rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600"></div>
-                <i
-                  className={`bi ${
-                    themeMode == "light"
-                      ? " bi-moon-stars-fill text-black"
-                      : "bi-brightness-high-fill "
-                  }   text-lg`}
-                ></i>
+                <div class="w-11 h-6 bg-gray-200   rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">
+                  <i
+                    className={`bi ${
+                      themeMode == "light"
+                        ? " bi-moon-stars-fill text-black"
+                        : "bi-brightness-high-fill "
+                    }   text-base`}
+                  ></i>
+                </span>
               </label>
             </ul>
           </div>

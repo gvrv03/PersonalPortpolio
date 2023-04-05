@@ -32,7 +32,7 @@ const BlogData = ({ blogs }) => {
               </Link>
             </li>
             <li aria-current="page">
-              <Link href="/blogs" className="flex items-center">
+              <Link href="/Blogs" className="flex items-center">
                 <svg
                   aria-hidden="true"
                   className="w-6 h-6 text-gray-400"
@@ -74,7 +74,7 @@ const BlogData = ({ blogs }) => {
           </ol>
         </nav>
 
-        <div className="overflow-y-scroll h-90">
+        <div className="h-90 overflow-y-scroll">
           <section className="">
             <h1 className="font-bold text-lg md:text-3xl">{title}</h1>
             <div className="mt-5 flex justify-between text-sm">

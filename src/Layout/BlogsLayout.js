@@ -44,24 +44,24 @@ const BlogsLayout = ({ children }) => {
           <div className=" mt-10">
             <HeaderName name="Category" />
             <div className="mt-5 flex gap-2 justify-between items-center flex-wrap">
-              <button className="bg-gray-100 hover:bg-gray-100 dark:hover:bg-gray-600 dark:bg-gray-800 font-semibold rounded-sm px-5 py-1  ">
+              <button className="bg-gray-100 hover:bg-gray-100 dark:hover:bg-gray-600 text-sm dark:bg-gray-800 font-semibold rounded-sm px-5 py-1  ">
                 Python
               </button>
 
-              <button className="bg-gray-100 hover:bg-gray-100 dark:hover:bg-gray-600 dark:bg-gray-800 font-semibold rounded-sm px-5 py-1  ">
+              <button className="bg-gray-100 hover:bg-gray-100 dark:hover:bg-gray-600 text-sm dark:bg-gray-800 font-semibold rounded-sm px-5 py-1  ">
                 Cyber Security
               </button>
 
-              <button className="bg-gray-100 hover:bg-gray-100 dark:hover:bg-gray-600 dark:bg-gray-800 font-semibold rounded-sm px-5 py-1  ">
+              <button className="bg-gray-100 hover:bg-gray-100 dark:hover:bg-gray-600 text-sm dark:bg-gray-800 font-semibold rounded-sm px-5 py-1  ">
                 Java
               </button>
-              <button className="bg-gray-100 hover:bg-gray-100 dark:hover:bg-gray-600 dark:bg-gray-800 font-semibold rounded-sm px-5 py-1  ">
+              <button className="bg-gray-100 hover:bg-gray-100 dark:hover:bg-gray-600 text-sm dark:bg-gray-800 font-semibold rounded-sm px-5 py-1  ">
                 Cyber Security
               </button>
-              <button className="bg-gray-100 hover:bg-gray-100 dark:hover:bg-gray-600 dark:bg-gray-800 font-semibold rounded-sm px-5 py-1  ">
+              <button className="bg-gray-100 hover:bg-gray-100 dark:hover:bg-gray-600 text-sm dark:bg-gray-800 font-semibold rounded-sm px-5 py-1  ">
                 Next js
               </button>
-              <button className="bg-gray-100 hover:bg-gray-100 dark:hover:bg-gray-600 dark:bg-gray-800 font-semibold rounded-sm px-5 py-1  ">
+              <button className="bg-gray-100 hover:bg-gray-100 dark:hover:bg-gray-600 text-sm dark:bg-gray-800 font-semibold rounded-sm px-5 py-1  ">
                 React
               </button>
             </div>

@@ -32,10 +32,12 @@ const AllSkills = ({ fun, mState }) => {
           fun("hidden");
         }}
       />
-      <div className=" bg-white dark:bg-gray-900 gap-10  z-10 h-4/5 w-4/5  absolute  ">
-        <h4 className="font-bold text-xl text-center">Skills</h4>
-        <div className="h-full overflow-y-scroll">
-          <div className="grid place-items-center">
+      <div className=" bg-white dark:bg-gray-900 gap-10 grid place-items-center p-10 z-10 h-4/5 w-4/5  absolute  ">
+        <h4 className="font-bold text-2xl text-center">Skills</h4>
+        <div className="w-10 h-1 bg-gray-200 dark:bg-gray-700  rounded-full" />
+
+        <div className="h-full  overflow-y-scroll">
+          <div className="grid place-items-center mb-10">
             <h4 className="font-bold text-xl pb-10">Programming Languages</h4>
             <div className="flex justify-center gap-10  flex-wrap items-center">
               {AllSkillsItem.pLanguages.map((i, index) => {
@@ -50,7 +52,7 @@ const AllSkills = ({ fun, mState }) => {
             </div>
           </div>
 
-          <div className="grid place-items-center">
+          <div className="grid place-items-center mb-10">
             <h4 className="font-bold text-xl pb-10">Web Development</h4>
             <div className="flex justify-center gap-10  flex-wrap items-center">
               {AllSkillsItem.webDev.map((i, index) => {
@@ -65,7 +67,7 @@ const AllSkills = ({ fun, mState }) => {
             </div>
           </div>
 
-          <div className="grid place-items-center">
+          <div className="grid place-items-center mb-10">
             <h4 className="font-bold text-xl pb-10">Tools</h4>
             <div className="flex justify-center gap-10  flex-wrap items-center">
               {AllSkillsItem.tools.map((i, index) => {

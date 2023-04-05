@@ -1,9 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function BlogCard({ title, category, description, image, id ,views}) {
+export default function BlogCard({
+  title,
+  category,
+  description,
+  image,
+  id,
+  views,
+}) {
   return (
-    <div className="w-full md:w-auto">
+    <div className="w-full md:w-auto ">
       <div className=" rounded-sm">
         <img src={image} alt={title} />
         <div className="p-5 bg-white dark:bg-gray-900">
