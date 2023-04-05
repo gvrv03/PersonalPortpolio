@@ -8,8 +8,7 @@ import Image from "next/image";
 
 const BlogData = ({ blogs }) => {
   const router = useRouter();
-  console.log(blogs);
-  const { title, category, description, image, artical, author ,views} = blogs
+  const { title, category, description, image, artical, author ,views} = blogs.post
   return (
     <BlogsLayout>
       <div className="bg-white h-full dark:bg-gray-900 p-5 ">
