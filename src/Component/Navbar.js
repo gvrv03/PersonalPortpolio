@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useContext } from "react";
 import portpolioContext from "../../lib/Context/portpolioContext";
 import { useUserAuth } from "../../lib/Context/UserAuthContext";
+import { perf } from "../../firebase";
 
 const Navbar = () => {
   const [sidebar, setsidebar] = useState("-left-full");
@@ -13,6 +14,7 @@ const Navbar = () => {
   const [setdrawer, setsetdrawer] = useState("hidden");
   const { user, logOut } = useUserAuth();
 console.log(user);
+
   const toggleDrawer = () => {
     if (setdrawer == "hidden") {
       setsetdrawer("block");

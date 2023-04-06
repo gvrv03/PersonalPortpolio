@@ -14,12 +14,12 @@ const firebaseConfig = {
   storageBucket: "personalportpolio.appspot.com",
   messagingSenderId: "949716623031",
   appId: "1:949716623031:web:505888faa598e294887732",
-  measurementId: "G-PGSYMFHNT8"
+  measurementId: "G-PGSYMFHNT8",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
-export const auth = getAuth(app)
+export const auth = getAuth(app);
 
-export default app
+export default app;
