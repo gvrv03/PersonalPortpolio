@@ -1,12 +1,11 @@
-import { useRouter } from "next/router";
+import Router from "next/router";
 import React from "react";
 import { useUserAuth } from "../../lib/Context/UserAuthContext";
 
 const DashboardLayout = ({ children }) => {
   const { user } = useUserAuth();
-  const router = useRouter();
   if (!user || user.emailVerified == true) {
-    router.push("/");
+    Router.push("/");
   }
   return (
     <div className=" pt-24 h-full flex gap-5 container m-auto ">

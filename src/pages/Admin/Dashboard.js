@@ -1,5 +1,4 @@
 import DashboardLayout from "gauravnarnaware/Layout/DashboardLayout";
-import { useRouter } from "next/router";
 import React from "react";
 import { useUserAuth } from "../../../lib/Context/UserAuthContext";
 
@@ -46,9 +45,6 @@ const StatHeader = () => {
 
 const Dashboard = () => {
   const { user } = useUserAuth();
-  const router = useRouter();
-
-
 
   return (
     <div className="">
