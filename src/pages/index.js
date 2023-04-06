@@ -6,6 +6,7 @@ import Typewriter from "typewriter-effect";
 
 import { useContext } from "react";
 import portpolioContext from "../../lib/Context/portpolioContext";
+import Link from "next/link";
 const HeaderName = (props) => {
   return (
     <div className="my-10 mt-20 grid place-items-center">
@@ -191,7 +192,7 @@ const ContactUs = () => {
 
 const LandingPage = () => {
   const context = useContext(portpolioContext);
-  const { theme,themeMode } = context;
+  const { theme, themeMode } = context;
   return (
     <section
       className={`text-gray-600 ${
@@ -272,9 +273,13 @@ const AboutUs = () => {
             other web development frameworks.
           </p>
           <div className=" grid place-items-center">
-            <button className="py-2 text-center px-10  bg-indigo-500 dark:bg-red-500  dark:hover:bg-red-600 hover:bg-indigo-600   text-lg rounded-sm text-white mt-5 font-bold ">
+            <a
+              href="/gvrvresume.pdf"
+              download
+              className="py-2 text-center px-10  bg-indigo-500 dark:bg-red-500  dark:hover:bg-red-600 hover:bg-indigo-600   text-lg rounded-sm text-white mt-5 font-bold "
+            >
               Download CV
-            </button>
+            </a>
           </div>
         </div>
       </div>

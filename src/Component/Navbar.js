@@ -6,6 +6,7 @@ import { useContext } from "react";
 import portpolioContext from "../../lib/Context/portpolioContext";
 import { useUserAuth } from "../../lib/Context/UserAuthContext";
 import { perf } from "../../firebase";
+import { useRouter } from "next/router";
 
 const Navbar = () => {
   const [sidebar, setsidebar] = useState("-left-full");
@@ -13,7 +14,8 @@ const Navbar = () => {
   const { toggleTheme, themeMode } = context;
   const [setdrawer, setsetdrawer] = useState("hidden");
   const { user, logOut } = useUserAuth();
-console.log(user);
+  console.log(user);
+  const router = useRouter();
 
   const toggleDrawer = () => {
     if (setdrawer == "hidden") {
@@ -70,9 +72,22 @@ console.log(user);
               setsidebar("-left-full");
             }}
           />
-          <div className="z-50 text-black p-5 fixed h-screen bg-white dark:text-white dark:bg-gray-900 w-3/4">
-            <div className="">
-              <span className="font-bold text-base ">Gaurav</span>
+          <div
+          
+            className="z-50 text-black p-5 fixed h-screen bg-white dark:text-white dark:bg-gray-900 w-3/4"
+          >
+            <div className="flex justify-start items-center gap-5 uppercase">
+              <Image
+                width={20}
+                height={20}
+                src="/gaurav.svg"
+                className=" p-1 w-10 h-10 border-2 rounded-full  sm:h-10"
+                alt="Gaurav Narnaware"
+                // style={{ width: "auto", height: "auto" }}
+              />
+              <span className="font-bold text-lg  border-b-2 border-indigo-600 dark:border-red-600 ">
+                Gaurav Narnaware
+              </span>
             </div>
             <div className="dark:bg-gray-800 bg-gray-200 flex justify-center items-center mt-5">
               <input
@@ -86,7 +101,7 @@ console.log(user);
                 </button>
               </div>
             </div>
-            <div className="mt-5 flex flex-col trans gap-5">
+            <div className="mt-10 flex flex-col trans gap-5">
               {TopNav.map((i, index) => {
                 return (
                   <Link href={i.location} key={index}>
@@ -97,13 +112,45 @@ console.log(user);
                       className=" w-full py-1 text-black dark:text-white text-left font-semibold"
                       type="button"
                     >
-                      <i className={`bi ${i.icon} mr-5`}></i>
+                      <i
+                        className={`bi dark:bg-gray-800 p-2 w-5 h-5 rounded-sm bg-gray-100 ${i.icon} mr-5`}
+                      ></i>
                       {i.name}
                     </button>
                   </Link>
                 );
               })}
+
+              <Link href="/Admin/Dashboard">
+                <button
+                  onClick={() => {
+                    setsidebar("-left-full");
+                  }}
+                  className=" w-full py-1 text-black dark:text-white text-left font-semibold"
+                  type="button"
+                >
+                  <i
+                    className={`bi dark:bg-gray-800 p-2 w-5 h-5 rounded-sm bg-gray-100 bi-bar-chart-line-fill  mr-5`}
+                  ></i>
+                  Dashboard
+                </button>
+              </Link>
             </div>
+            {user && (
+              <div className="flex justify-center gap-5 items-center bg-gray-100 rounded-sm  dark:bg-gray-800  mt-10 p-4 ">
+                <img
+                  src={user && user.photoURL}
+                  className="border-2 w-10 h-10 rounded-full p-1 dark:border-gray-900 "
+                />
+                <div>
+                  Hello!{" "}
+                  <span className="text-indigo-600 dark:text-red-600 font-bold">
+                    {user && user.displayName}
+                  </span>
+                </div>
+                <i className="bi bi-gear-fill"></i>
+              </div>
+            )}
           </div>
         </div>
       </>
@@ -113,17 +160,17 @@ console.log(user);
     <>
       <nav className="py-3 px-5 fixed z-50 w-full left-0 backdrop-blur-xl dark:border-none shadow-md ">
         <div className="container flex flex-wrap items-center justify-between mx-auto">
-          <a href="#" className="flex items-center">
+          <Link href="/" className="flex items-center">
             <Image
               width={20}
-              height={100}
-              src="https://flowbite.com/docs/images/logo.svg"
-              className="h-6  sm:h-10"
-              alt="Flowbite Logo"
-              style={{ width: "auto", height: "auto" }}
+              height={20}
+              src="/gaurav.svg"
+              className=" p-1 w-10 h-10 border-2 rounded-full  sm:h-10"
+              alt="Gaurav Narnaware"
+              // style={{ width: "auto", height: "auto" }}
             />
-            <span className="text-xl ml-2 font-semibold  ">Gaurav</span>
-          </a>
+            <span className="text-xl ml-5 font-semibold  ">Gaurav</span>
+          </Link>
           <div
             data-collapse-toggle="navbar-multi-level"
             type="button"
@@ -201,6 +248,17 @@ console.log(user);
                   </li>
                 );
               })}
+
+              <li>
+                <Link
+                  href="/Admin/Dashboard"
+                  className="block py-2 pl-3 pr-4 rounded md:bg-transparent  md:p-0   md:dark:bg-transparent"
+                  aria-current="page"
+                >
+                  <i className={`bi bi-bar-chart-line-fill mr-3 `}></i>
+                  Dashboard
+                </Link>
+              </li>
 
               {!user ? (
                 <Link
