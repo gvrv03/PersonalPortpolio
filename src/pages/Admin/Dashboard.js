@@ -48,9 +48,7 @@ const Dashboard = () => {
   const { user } = useUserAuth();
   const router = useRouter();
 
-  if (!user && user.emailVerified == true) {
-    router.push("/");
-  }
+
 
   return (
     <div className="">

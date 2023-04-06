@@ -5,9 +5,9 @@ import { useUserAuth } from "../../lib/Context/UserAuthContext";
 const DashboardLayout = ({ children }) => {
   const { user } = useUserAuth();
   const router = useRouter();
-  // if (!user) {
-  //   router.push("/");
-  // }
+  if (!user || user.emailVerified == true) {
+    router.push("/");
+  }
   return (
     <div className=" pt-24 h-full flex gap-5 container m-auto ">
       <div className="w-1/5  md:block hidden p-5 bg-white dark:bg-gray-900">

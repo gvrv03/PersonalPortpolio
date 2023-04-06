@@ -67,7 +67,7 @@ const Navbar = () => {
       <>
         <div className={` w-full z-50 fixed   ${sidebar} md:hidden`}>
           <div
-            className="w-full h-screen fixed cursor-pointer backdrop-blur-sm"
+            className="w-full h-screen fixed cursor-pointer bg-blend-overlay  backdrop-blur-sm"
             onClick={() => {
               setsidebar("-left-full");
             }}
