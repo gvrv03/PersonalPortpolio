@@ -27,7 +27,7 @@ console.log(user);
     return (
       <div className="relative mr-5">
         <img
-          class="w-6 h-6   p-1 rounded-full cursor-pointer ring-2 ring-gray-300 dark:ring-gray-500"
+          className="w-6 h-6   p-1 rounded-full cursor-pointer ring-2 ring-gray-300 dark:ring-gray-500"
           src={
             user.photoURL
               ? user.photoURL
@@ -134,7 +134,7 @@ console.log(user);
             {!user ? (
               <Link
                 href="/SignIn"
-                className=" border w-6 h-6 cursor-pointer grid place-items-center   rounded-full"
+                className=" border w-6 h-6 mr-5 cursor-pointer grid place-items-center   rounded-full"
               >
                 <i className="bi bi-person-fill"></i>
               </Link>

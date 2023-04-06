@@ -42,7 +42,12 @@ const SignIn = () => {
           <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 text-center md:text-2xl dark:text-white">
             Sign Up
           </h1>
-          <h3>{msg}</h3>
+          {msg != "" && (
+            <h3 className="bg-red-100 text-center py-2 border border-red-200 font-bold text-red-700 dark:bg-gray-800 dark:text-white dark:border-gray-600">
+              {msg}
+            </h3>
+          )}
+
           <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
             {/* <div>
               <label
