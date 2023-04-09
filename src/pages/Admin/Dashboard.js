@@ -66,11 +66,14 @@ const Dashboard = () => {
             />
           </div>
         </div>
-
-        {/* <div className="w-full my-5 h-1 bg-gray-50 dark:bg-gray-700 mt-5 rounded-full" /> */}
-
         {/* Header Statistic */}
         <StatHeader />
+
+
+
+        <div>
+          
+        </div>
       </DashboardLayout>
       <div></div>
     </div>

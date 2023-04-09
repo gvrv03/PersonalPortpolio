@@ -7,6 +7,7 @@ import Typewriter from "typewriter-effect";
 import { useContext } from "react";
 import portpolioContext from "../../lib/Context/portpolioContext";
 import Link from "next/link";
+import { getBlogs } from "../../lib/Functions/getBlogs";
 const HeaderName = (props) => {
   return (
     <div className="my-10 mt-20 grid place-items-center">
@@ -15,14 +16,26 @@ const HeaderName = (props) => {
     </div>
   );
 };
-const FeatureBlog = () => {
+const FeatureBlog = ({ blogs }) => {
+  const last = blogs.length;
+  const first = last - 3;
   return (
     <div className="container  m-auto">
       <HeaderName name="Blog" />
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-        <BlogCard />
-        <BlogCard />
-        <BlogCard />
+        {blogs.slice(first, last).map((item) => {
+          return (
+            <BlogCard
+              image={item.image}
+              category={item.category}
+              title={item.title.substring(0, 80)}
+              description={item.description.substring(0, 100) + "..."}
+              key={item._id}
+              id={item._id}
+              views={item.views}
+            />
+          );
+        })}
       </div>
     </div>
   );
@@ -287,14 +300,21 @@ const AboutUs = () => {
   );
 };
 
-export default function Home() {
+export default function Home({ blogs }) {
   return (
     <>
       <LandingPage />
       <AboutUs />
       <Skills />
-      <FeatureBlog />
+      <FeatureBlog blogs={blogs} />
       <ContactUs />
     </>
   );
+}
+
+export async function getServerSideProps() {
+  const data = await getBlogs();
+  return {
+    props: { blogs: data },
+  };
 }

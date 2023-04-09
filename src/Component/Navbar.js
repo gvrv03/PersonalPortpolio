@@ -40,7 +40,7 @@ const Navbar = () => {
         />
 
         <div
-          className={`${setdrawer} absolute bg-white dark:bg-gray-900 right-0 p-5 my-5 border`}
+          className={`${setdrawer} absolute bg-white dark:bg-gray-900 right-0 p-5 my-5 border dark:border-gray-600`}
         >
           <h1>
             Hello !{" "}
@@ -67,24 +67,14 @@ const Navbar = () => {
       <>
         <div className={` w-full z-50 fixed   ${sidebar} md:hidden`}>
           <div
-            className="w-full h-screen fixed cursor-pointer bg-blend-overlay  backdrop-blur-sm"
+            className="w-full h-screen fixed cursor-pointer bg-blend-overlay  backdrop-blur-sm blackBg"
             onClick={() => {
               setsidebar("-left-full");
             }}
           />
-          <div
-          
-            className="z-50 text-black p-5 fixed h-screen bg-white dark:text-white dark:bg-gray-900 w-3/4"
-          >
+          <div className="z-50 text-black p-5 fixed h-screen bg-white dark:text-white dark:bg-gray-900 w-3/4">
             <div className="flex justify-start items-center gap-5 uppercase">
-              <Image
-                width={20}
-                height={20}
-                src="/gaurav.svg"
-                className=" p-1 w-10 h-10 border-2 rounded-full  sm:h-10"
-                alt="Gaurav Narnaware"
-                // style={{ width: "auto", height: "auto" }}
-              />
+             
               <span className="font-bold text-lg  border-b-2 border-indigo-600 dark:border-red-600 ">
                 Gaurav Narnaware
               </span>
@@ -136,11 +126,24 @@ const Navbar = () => {
                 </button>
               </Link>
             </div>
+
+            {!user && (
+              <div className="w-full rounded-sm p-5 bg-blue-50 flex flex-col gap-5 justify-center items-center border-gray-200 dark:bg-gray-800 border dark:border-gray-500 mt-10">
+                <Image
+                  width={100}
+                  height={100}
+                  src="/loginUser.svg"
+                  alt="Login User"
+                />
+                <span className="font-semibold text-lg">Login For More</span>
+              </div>
+            )}
+
             {user && (
-              <div className="flex justify-center gap-5 items-center bg-gray-100 rounded-sm  dark:bg-gray-800  mt-10 p-4 ">
+              <div className="flex rounded-full justify-between absolute bottom-10 w-90 gap-5 items-center bg-gray-100  dark:bg-gray-800  mt-10 p-4 ">
                 <img
                   src={user && user.photoURL}
-                  className="border-2 w-10 h-10 rounded-full p-1 dark:border-gray-900 "
+                  className="border-2 w-8 h-8 rounded-full p-1 dark:border-gray-900 "
                 />
                 <div>
                   Hello!{" "}
@@ -156,20 +159,13 @@ const Navbar = () => {
       </>
     );
   };
+
   return (
     <>
       <nav className="py-3 px-5 fixed z-50 w-full left-0 backdrop-blur-xl dark:border-none shadow-md ">
         <div className="container flex flex-wrap items-center justify-between mx-auto">
           <Link href="/" className="flex items-center">
-            <Image
-              width={20}
-              height={20}
-              src="/gaurav.svg"
-              className=" p-1 w-10 h-10 border-2 rounded-full  sm:h-10"
-              alt="Gaurav Narnaware"
-              // style={{ width: "auto", height: "auto" }}
-            />
-            <span className="text-xl ml-5 font-semibold  ">Gaurav</span>
+            <span className="text-xl  font-semibold  ">Gaurav</span>
           </Link>
           <div
             data-collapse-toggle="navbar-multi-level"

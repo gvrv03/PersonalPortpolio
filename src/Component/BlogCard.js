@@ -12,7 +12,7 @@ export default function BlogCard({
   return (
     <div className="w-full md:w-auto ">
       <div className=" rounded-sm">
-        <img src={image} alt={title} />
+        <img className="w-full h-64" src={image} alt={title} />
         <div className="p-5 bg-white dark:bg-gray-900">
           <h2 className="tracking-widest text-xs title-font text-gray-500 dark:text-gray-600 font-medium mb-1">
             {category}
@@ -32,6 +32,7 @@ export default function BlogCard({
                   postId: id,
                 },
               }}
+              target="_blank"
               className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"
             >
               Learn More
