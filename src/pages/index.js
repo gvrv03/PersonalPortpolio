@@ -220,6 +220,7 @@ const LandingPage = () => {
               height={500}
               alt="Gaurav Narnaware"
               src="/gaurav.svg"
+              className="md:h-96 md:w-96   w-60 h-60 "
             />
           </div>
           {/* <div className="absolute left-16 px-10 py-5 float  dark:text-white border border-gray-500 backdrop-blur-md rounded-sm top-5">

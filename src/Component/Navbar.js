@@ -140,7 +140,7 @@ const Navbar = () => {
             )}
 
             {user && (
-              <div className="flex rounded-full justify-between absolute bottom-10 w-90 gap-5 items-center bg-gray-100  dark:bg-gray-800  mt-10 p-4 ">
+              <div className="flex rounded-full justify-between absolute bottom-20 w-90 gap-5 items-center bg-gray-100  dark:bg-gray-800  mt-10 p-4 ">
                 <img
                   src={user && user.photoURL}
                   className="border-2 w-8 h-8 rounded-full p-1 dark:border-gray-900 "
