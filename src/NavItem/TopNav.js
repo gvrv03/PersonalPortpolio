@@ -5,13 +5,13 @@ const TopNav = [
     icon: "bi-house-door-fill",
   },
   {
-    name: "Latest News",
-    location: "/Latest",
-    icon: "bi-newspaper",
-  },
-  {
     name: "Blogs",
     location: "/Blogs",
+    icon: "bi-building-fill",
+  },
+  {
+    name: "Projects",
+    location: "/Projects",
     icon: "bi-building-fill",
   },
   {

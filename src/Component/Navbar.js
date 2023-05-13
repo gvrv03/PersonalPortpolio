@@ -2,16 +2,14 @@ import TopNav from "gauravnarnaware/NavItem/TopNav";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useContext } from "react";
-import portpolioContext from "../../lib/Context/portpolioContext";
 import { useUserAuth } from "../../lib/Context/UserAuthContext";
 import { perf } from "../../firebase";
 import { useRouter } from "next/router";
+import { useUserTheme } from "../../lib/Context/ThemeContext";
 
 const Navbar = () => {
   const [sidebar, setsidebar] = useState("-left-full");
-  const context = useContext(portpolioContext);
-  const { toggleTheme, themeMode } = context;
+  const { toggleTheme, themeMode } = useUserTheme();
   const [setdrawer, setsetdrawer] = useState("hidden");
   const { user, logOut } = useUserAuth();
   console.log(user);
@@ -74,7 +72,6 @@ const Navbar = () => {
           />
           <div className="z-50 text-black p-5 fixed h-screen bg-white dark:text-white dark:bg-gray-900 w-3/4">
             <div className="flex justify-start items-center gap-5 uppercase">
-             
               <span className="font-bold text-lg  border-b-2 border-indigo-600 dark:border-red-600 ">
                 Gaurav Narnaware
               </span>

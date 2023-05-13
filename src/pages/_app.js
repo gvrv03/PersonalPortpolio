@@ -4,13 +4,13 @@ import ScrollToTop from "react-scroll-up";
 import Navbar from "gauravnarnaware/Component/Navbar";
 import "gauravnarnaware/styles/globals.css";
 import { ThemeProvider } from "next-themes";
-import PortpolioState from "../../lib/Context/PortpolioState";
 // import reportWebVitals from "../../reportWebVitals";
 import Router from "next/router";
 
 import NProgress from "nprogress"; //nprogress module
 import "nprogress/nprogress.css"; //styles of nprogress
 import { UserAuthContexProvider } from "../../lib/Context/UserAuthContext";
+import { UserThemeContexProvider } from "../../lib/Context/ThemeContext";
 Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
@@ -20,14 +20,14 @@ export default function App({ Component, pageProps }) {
   return (
     <ThemeProvider attribute="class">
       <UserAuthContexProvider>
-        <PortpolioState>
+        <UserThemeContexProvider>
           <Navbar />
           <Component {...pageProps} />
           <Footer />
           <ScrollToTop showUnder={160}>
             <i className="bi text-3xl text-red-600 bi-arrow-up-square-fill"></i>
           </ScrollToTop>
-        </PortpolioState>
+        </UserThemeContexProvider>
       </UserAuthContexProvider>
     </ThemeProvider>
   );
