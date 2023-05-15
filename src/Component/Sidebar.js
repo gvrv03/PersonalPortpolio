@@ -30,7 +30,7 @@ export default function Sidebar() {
 
   const list = (anchor) => (
     <Box
-      sx={{ width: 300, padding: "10px" }}
+      sx={{ width: 400, padding: "10px" }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
@@ -42,7 +42,7 @@ export default function Sidebar() {
       <List>
         {TopNav.map((text, index) => (
           <Link key={index} href={text.location}>
-            <ListItem  disablePadding>
+            <ListItem disablePadding>
               <ListItemButton>
                 <i className={`bi ${text.icon} mr-5 text-xl`} />
                 <ListItemText primary={text.name} />
@@ -51,7 +51,8 @@ export default function Sidebar() {
           </Link>
         ))}
 
-        <Link href="/Admin/Dashboard">
+        <Divider />
+        <Link href="/Admin/Statistics">
           <ListItem disablePadding>
             <ListItemButton>
               <i className={`bi bi-bar-chart-line-fill  mr-5 text-xl`} />
@@ -60,35 +61,22 @@ export default function Sidebar() {
           </ListItem>
         </Link>
       </List>
-      {/* <Divider />
-      <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List> */}
     </Box>
   );
 
   return (
     <div>
       <>
-        <button onClick={toggleDrawer("left", true)} className>
+        <button onClick={toggleDrawer("right", true)} >
           <i className="bi bi-list dark:text-gray-100 text-black text-2xl" />
         </button>
         <SwipeableDrawer
-          anchor="left"
-          open={state["left"]}
-          onClose={toggleDrawer("left", false)}
-          onOpen={toggleDrawer("left", true)}
+          anchor="right"
+          open={state["right"]}
+          onClose={toggleDrawer("right", false)}
+          onOpen={toggleDrawer("right", true)}
         >
-          {list("left")}
+          {list("right")}
         </SwipeableDrawer>
       </>
     </div>

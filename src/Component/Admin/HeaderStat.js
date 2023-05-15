@@ -48,7 +48,7 @@ const HeaderStat = () => {
   };
   return (
     <div>
-      <div className=" w-full p-5 bg-white dark:bg-gray-900">
+      <div className=" w-full  bg-white dark:bg-gray-900">
         {" "}
         <div className=" justify-between items-center  rounded-full  flex mb-5">
           <div className="bg-gray-100 dark:bg-gray-800 font-bold px-10 py-2 rounded-full ">

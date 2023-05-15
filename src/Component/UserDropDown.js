@@ -15,13 +15,14 @@ import { useUserAuth } from "../../lib/Context/UserAuthContext";
 
 export default function UserDropDown() {
   const { user, logOut } = useUserAuth();
-  console.log(user);
+
   const [anchorEl, setAnchorEl] = React.useState(null);
-  
+
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
+
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -77,6 +78,15 @@ export default function UserDropDown() {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
+        <h5 className="p-5 ">
+          <div className="border-b-2 pb-2">
+            Hello !{" "}
+            <span className="font-semibold text-blue-600 ">
+              {user.displayName}
+            </span>
+          </div>
+        </h5>
+
         <MenuItem onClick={handleClose}>
           <Avatar /> Profile
         </MenuItem>
@@ -84,12 +94,7 @@ export default function UserDropDown() {
           <Avatar /> My account
         </MenuItem>
         <Divider />
-        <MenuItem onClick={handleClose}>
-          <ListItemIcon>
-            <PersonAdd fontSize="small" />
-          </ListItemIcon>
-          Add another account
-        </MenuItem>
+
         <MenuItem onClick={handleClose}>
           <ListItemIcon>
             <Settings fontSize="small" />

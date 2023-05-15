@@ -15,6 +15,11 @@ const TopNav = [
     icon: "bi-building-fill",
   },
   {
+    name: "Collection",
+    location: "/Collection",
+    icon: "bi-bookmarks-fill",
+  },
+  {
     name: "About",
     location: "/AboutUs",
     icon: "bi-info-square-fill",
