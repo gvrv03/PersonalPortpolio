@@ -41,8 +41,8 @@ export default function Sidebar() {
       <Divider />
       <List>
         {TopNav.map((text, index) => (
-          <Link href={text.location}>
-            <ListItem key={index} disablePadding>
+          <Link key={index} href={text.location}>
+            <ListItem  disablePadding>
               <ListItemButton>
                 <i className={`bi ${text.icon} mr-5 text-xl`} />
                 <ListItemText primary={text.name} />
