@@ -6,156 +6,53 @@ import { useUserAuth } from "../../lib/Context/UserAuthContext";
 import { perf } from "../../firebase";
 import { useRouter } from "next/router";
 import { useUserTheme } from "../../lib/Context/ThemeContext";
+import Sidebar from "./Sidebar";
+import UserDropDown from "./UserDropDown";
 
 const Navbar = () => {
-  const [sidebar, setsidebar] = useState("-left-full");
   const { toggleTheme, themeMode } = useUserTheme();
-  const [setdrawer, setsetdrawer] = useState("hidden");
   const { user, logOut } = useUserAuth();
-  console.log(user);
+  
   const router = useRouter();
 
-  const toggleDrawer = () => {
-    if (setdrawer == "hidden") {
-      setsetdrawer("block");
-    } else {
-      setsetdrawer("hidden");
-    }
-  };
 
-  const UserDrawer = () => {
-    return (
-      <div className="relative mr-5">
-        <img
-          className="w-6 h-6   p-1 rounded-full cursor-pointer ring-2 ring-gray-300 dark:ring-gray-500"
-          src={
-            user.photoURL
-              ? user.photoURL
-              : "https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars-thumbnail.png"
-          }
-          onClick={toggleDrawer}
-          alt="Bordered avatar"
-        />
+  // const UserDrawer = () => {
+  //   return (
+  //     // <div className="relative ">
+  //     //   <img
+  //     //     className="w-6 h-6   p-1 rounded-full cursor-pointer ring-2 ring-gray-300 dark:ring-gray-500"
+  //     //     src={
+  //     //       user.photoURL
+  //     //         ? user.photoURL
+  //     //         : "https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars-thumbnail.png"
+  //     //     }
+  //     //     onClick={toggleDrawer}
+  //     //     alt="Bordered avatar"
+  //     //   />
 
-        <div
-          className={`${setdrawer} absolute bg-white dark:bg-gray-900 right-0 p-5 my-5 border dark:border-gray-600`}
-        >
-          <h1>
-            Hello !{" "}
-            <span className="text-indigo-600 dark:text-red-600">
-              {user.email}
-            </span>{" "}
-          </h1>
-          <div className="w-full h-1 bg-gray-200 dark:bg-gray-700 my-5 rounded-full" />
+  //     //   <div
+  //     //     className={`${setdrawer} absolute bg-white dark:bg-gray-900 right-0 p-5 my-5 border dark:border-gray-600`}
+  //     //   >
+  //     //     <h1>
+  //     //       Hello !{" "}
+  //     //       <span className="text-indigo-600 dark:text-red-600">
+  //     //         {user.email}
+  //     //       </span>{" "}
+  //     //     </h1>
+  //     //     <div className="w-full h-1 bg-gray-200 dark:bg-gray-700 my-5 rounded-full" />
 
-          <button
-            onClick={() => {
-              logOut();
-              alert("Logou");
-            }}
-          >
-            Sign Out
-          </button>
-        </div>
-      </div>
-    );
-  };
-  const Drawer = () => {
-    return (
-      <>
-        <div className={` w-full z-50 fixed   ${sidebar} md:hidden`}>
-          <div
-            className="w-full h-screen fixed cursor-pointer bg-blend-overlay  backdrop-blur-sm blackBg"
-            onClick={() => {
-              setsidebar("-left-full");
-            }}
-          />
-          <div className="z-50 text-black p-5 fixed h-screen bg-white dark:text-white dark:bg-gray-900 w-3/4">
-            <div className="flex justify-start items-center gap-5 uppercase">
-              <span className="font-bold text-lg  border-b-2 border-indigo-600 dark:border-red-600 ">
-                Gaurav Narnaware
-              </span>
-            </div>
-            <div className="dark:bg-gray-800 bg-gray-200 flex justify-center items-center mt-5">
-              <input
-                type="search"
-                className="p-2 w-4/5 bg-transparent outline-none"
-                placeholder="Search Blog..."
-              />
-              <div className="w-1/5 grid place-items-center  text-black dark:text-white">
-                <button type="button">
-                  <i className=" bi bi-search "></i>
-                </button>
-              </div>
-            </div>
-            <div className="mt-10 flex flex-col trans gap-5">
-              {TopNav.map((i, index) => {
-                return (
-                  <Link href={i.location} key={index}>
-                    <button
-                      onClick={() => {
-                        setsidebar("-left-full");
-                      }}
-                      className=" w-full py-1 text-black dark:text-white text-left font-semibold"
-                      type="button"
-                    >
-                      <i
-                        className={`bi dark:bg-gray-800 p-2 w-5 h-5 rounded-sm bg-gray-100 ${i.icon} mr-5`}
-                      ></i>
-                      {i.name}
-                    </button>
-                  </Link>
-                );
-              })}
-
-              <Link href="/Admin/Dashboard">
-                <button
-                  onClick={() => {
-                    setsidebar("-left-full");
-                  }}
-                  className=" w-full py-1 text-black dark:text-white text-left font-semibold"
-                  type="button"
-                >
-                  <i
-                    className={`bi dark:bg-gray-800 p-2 w-5 h-5 rounded-sm bg-gray-100 bi-bar-chart-line-fill  mr-5`}
-                  ></i>
-                  Dashboard
-                </button>
-              </Link>
-            </div>
-
-            {!user && (
-              <div className="w-full rounded-sm p-5 bg-blue-50 flex flex-col gap-5 justify-center items-center border-gray-200 dark:bg-gray-800 border dark:border-gray-500 mt-10">
-                <Image
-                  width={100}
-                  height={100}
-                  src="/loginUser.svg"
-                  alt="Login User"
-                />
-                <span className="font-semibold text-lg">Login For More</span>
-              </div>
-            )}
-
-            {user && (
-              <div className="flex rounded-full justify-between absolute bottom-20 w-90 gap-5 items-center bg-gray-100  dark:bg-gray-800  mt-10 p-4 ">
-                <img
-                  src={user && user.photoURL}
-                  className="border-2 w-8 h-8 rounded-full p-1 dark:border-gray-900 "
-                />
-                <div>
-                  Hello!{" "}
-                  <span className="text-indigo-600 dark:text-red-600 font-bold">
-                    {user && user.displayName}
-                  </span>
-                </div>
-                <i className="bi bi-gear-fill"></i>
-              </div>
-            )}
-          </div>
-        </div>
-      </>
-    );
-  };
+  //     //     <button
+  //     //       onClick={() => {
+  //     //         logOut();
+  //     //         alert("Logou");
+  //     //       }}
+  //     //     >
+  //     //       Sign Out
+  //     //     </button>
+  //     //   </div>
+  //     // </div>
+  //   );
+  // };
 
   return (
     <>
@@ -167,22 +64,30 @@ const Navbar = () => {
           <div
             data-collapse-toggle="navbar-multi-level"
             type="button"
-            className="inline-flex items-center py-2  text-sm text-gray-500 rounded-lg md:hidden dark:text-gray-400 "
+            className="inline-flex items-center py-2  gap-5 text-sm text-gray-500 rounded-lg dark:text-gray-400 "
             aria-controls="navbar-multi-level"
             aria-expanded="false"
           >
+            <input
+              type="search"
+              className=" md:block hidden border dark:border-gray-700  dark:bg-gray-800 px-5 outline-none p-2 w-full rounded-full"
+              placeholder="Search... "
+              name=""
+              id=""
+            />
+
             {!user ? (
               <Link
                 href="/SignIn"
-                className=" border w-6 h-6 mr-5 cursor-pointer grid place-items-center   rounded-full"
+                className=" border w-6 h-6  cursor-pointer grid place-items-center   rounded-full"
               >
                 <i className="bi bi-person-fill"></i>
               </Link>
             ) : (
-              <UserDrawer />
+              <UserDropDown/>
             )}
 
-            <label className="relative inline-flex gap-5 mr-5 items-center cursor-pointer">
+            <label className="relative inline-flex gap-5  items-center cursor-pointer">
               <input
                 type="checkbox"
                 checked={themeMode == "light" ? true : false}
@@ -200,92 +105,19 @@ const Navbar = () => {
                 ></i>
               </span>
             </label>
-            <button
-              type="button"
-              className="dark:text-white"
-              onClick={() => {
-                setsidebar(sidebar == "-left-full" ? "left-0" : "-left-full");
-              }}
-            >
-              <svg
-                className="w-6 h-6"
-                aria-hidden="true"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                  clipRule="evenodd"
-                ></path>
-              </svg>
-            </button>
-          </div>
-          <div
-            className="hidden w-full md:block md:w-auto"
-            id="navbar-multi-level"
-          >
-            <ul className="flex flex-col p-4 gap-5 mt-4  rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:">
-              {TopNav.map((i, index) => {
-                return (
-                  <li key={index}>
-                    <Link
-                      href={i.location}
-                      className="block py-2 pl-3 pr-4 rounded md:bg-transparent  md:p-0   md:dark:bg-transparent"
-                      aria-current="page"
-                    >
-                      <i className={`bi ${i.icon} mr-3 `}></i>
-                      {i.name}
-                    </Link>
-                  </li>
-                );
-              })}
-
-              <li>
-                <Link
-                  href="/Admin/Dashboard"
-                  className="block py-2 pl-3 pr-4 rounded md:bg-transparent  md:p-0   md:dark:bg-transparent"
-                  aria-current="page"
-                >
-                  <i className={`bi bi-bar-chart-line-fill mr-3 `}></i>
-                  Dashboard
-                </Link>
-              </li>
-
-              {!user ? (
-                <Link
-                  href="/SignIn"
-                  className=" border w-6 h-6 cursor-pointer grid place-items-center   rounded-full"
-                >
-                  <i className="bi bi-person-fill"></i>
-                </Link>
-              ) : (
-                <UserDrawer />
-              )}
-              <label className="relative inline-flex gap items-center cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={themeMode == "light" ? true : false}
-                  onChange={toggleTheme}
-                  className="sr-only peer "
-                />
-                <div className="w-11 h-6 bg-gray-200   rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">
-                  <i
-                    className={`bi ${
-                      themeMode == "light"
-                        ? " bi-moon-stars-fill text-black"
-                        : "bi-brightness-high-fill "
-                    }   text-base`}
-                  ></i>
-                </span>
-              </label>
-            </ul>
+            <Sidebar />
           </div>
         </div>
+
+        <input
+          type="search"
+          className=" border md:hidden block dark:border-gray-700  dark:bg-gray-800 px-5 outline-none p-2 w-full rounded-full"
+          placeholder="Search... "
+          name=""
+          id=""
+        />
       </nav>
-      <Drawer />
+      {/* <Drawer /> */}
     </>
   );
 };

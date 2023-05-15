@@ -7,7 +7,9 @@
   /* background-color: red; */
   background-image: url("/Background.svg");
 }
-
+.bgBackground{
+  background-color: rgba(237, 237, 255, 0.336);
+}
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 0px;
@@ -15,6 +17,11 @@
 
 .trans {
   transition: all 5s ease;
+}
+.pBtn{
+  background-color: red;
+  color: white;
+  font-weight: 600;
 }
 
 /* background black  */
@@ -72,3 +79,4 @@
     transform: translatey(0px);
   }
 }
+
