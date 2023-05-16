@@ -40,10 +40,11 @@ const AllBlogs = () => {
           {blogs.data &&
             blogs.data.map((item, index) => {
               return (
-                <div className="bg-white dark:bg-gray-900 h-fit  p-5">
+                <div 
+                key={index}
+                className="bg-white dark:bg-gray-900 h-fit  p-5">
                   {" "}
                   <div
-                    key={index}
                     className="flex flex-col md:flex-row items-center justify-between gap-5  "
                   >
                     <div className="flex gap-5  items-center flex-col justify-center md:flex-row ">
