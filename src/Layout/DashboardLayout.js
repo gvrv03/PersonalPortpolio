@@ -41,10 +41,11 @@ const DashboardLayout = ({ children }) => {
               <p>Stats</p>
             </button>
             <button
-             onClick={() => {
-              router.push("/Admin/AllBlogs");
-            }}
-             className=" flex w-full gap-5 rounded-md text-left px-5 py-2 font-semibold">
+              onClick={() => {
+                router.push("/Admin/AllBlogs");
+              }}
+              className=" flex w-full gap-5 rounded-md text-left px-5 py-2 font-semibold"
+            >
               <i className="bi bi-newspaper" />
               <p>Posts</p>
             </button>
@@ -72,7 +73,12 @@ const DashboardLayout = ({ children }) => {
               <i className="bi bi-inbox-fill" />
               <p>All Email</p>
             </button>
-            <button className=" flex w-full gap-5 rounded-md text-left px-5 py-2 font-semibold">
+            <button
+              onClick={() => {
+                router.push("/Admin/AllUsers");
+              }}
+              className=" flex w-full gap-5 rounded-md text-left px-5 py-2 font-semibold"
+            >
               <i className="bi bi-person-fill" />
               <p>Users</p>
             </button>
@@ -82,7 +88,7 @@ const DashboardLayout = ({ children }) => {
             </button>
           </aside>
           <div className="w-full ">
-            <div className="p-5 bg-white dark:bg-gray-900">{children}</div>
+            <div className=" h-screen">{children}</div>
           </div>
         </div>
       </div>

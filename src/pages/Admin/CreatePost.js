@@ -24,7 +24,7 @@ const CreatePost = () => {
   };
   return (
     <DashboardLayout>
-      <div className="w-full h-screen">
+      <div className="w-full bg-white p-5 dark:bg-gray-900 h-full">
         <div className="  gap-5 flex">
           <input
             type="text"
@@ -43,11 +43,12 @@ const CreatePost = () => {
               <p className="hidden md:block">Publish</p>
             </button>
           </div>
-          <button  
-                onClick={toggleblogNav}
-                className="border    block md:hidden  gap-2 rounded-full p-2 px-3">
-              <i className="bi bi-gear-fill" />
-            </button>
+          <button
+            onClick={toggleblogNav}
+            className="border    block md:hidden  gap-2 rounded-full p-2 px-3"
+          >
+            <i className="bi bi-gear-fill" />
+          </button>
         </div>
 
         <div className=" w-full flex gap-5 mt-10">
@@ -64,7 +65,7 @@ const CreatePost = () => {
           </div>
 
           <div
-            className={`flex md:w-1/5 md:relative fixed w-full h-screen md:right-0 transition-all ease-linear delay-150   ${blogNav} md:top-0 top-20  md:p-0 z-50 bg-white dark:bg-gray-900 p-5 flex-col gap-5`}
+            className={`flex md:w-1/5 md:relative fixed w-full h-full md:right-0 transition-all ease-linear delay-150   ${blogNav} md:top-0 top-20  md:p-0 z-50 bg-white dark:bg-gray-900 p-5 flex-col gap-5`}
           >
             <div className="md:hidden">
               <button

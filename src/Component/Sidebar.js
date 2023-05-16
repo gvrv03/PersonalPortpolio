@@ -30,7 +30,7 @@ export default function Sidebar() {
 
   const list = (anchor) => (
     <Box
-      sx={{ width: 400, padding: "10px" }}
+      sx={{ width: 300, padding: "10px" }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
