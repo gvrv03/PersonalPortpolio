@@ -6,10 +6,12 @@ import { useUserAuth } from "../../lib/Context/UserAuthContext";
 import { async } from "@firebase/util";
 import { set } from "nprogress";
 import { useRouter } from "next/router";
+import { DefButton } from "gauravnarnaware/Component/UtilComponent";
 
 const SignIn = () => {
   const [userData, setuserData] = useState({});
   const { signUp, user } = useUserAuth();
+  const [loading, setloading] = useState(false);
   const [requiredState, setRequired] = useState(false);
   const [msg, setmsg] = useState("");
   const router = useRouter();
@@ -23,18 +25,25 @@ const SignIn = () => {
     router.push("/");
   }
 
+  if (msg) {
+    setTimeout(() => {
+      setmsg("");
+    }, 4000);
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setloading(true);
     setmsg("");
     try {
       await signUp(userData.email, userData.password);
       console.log(user);
-      router.push("/SignIn");
+      setloading(false);
     } catch (error) {
       setmsg(error.code);
+      setloading(false);
     }
   };
-  console.log(userData);
   return (
     <Auth>
       <div className="w-full bg-white rounded-sm shadow-lg md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-900 dark:border-gray-700">
@@ -48,23 +57,7 @@ const SignIn = () => {
             </h3>
           )}
 
-          <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
-            {/* <div>
-              <label
-                htmlFor="Name"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >
-                Your Name
-              </label>
-              <input
-                type="text"
-                required={requiredState}
-                onChange={onChange}
-                name="userName"
-                className=" text-gray-900 sm:text-sm rounded-sm  outline-none block w-full p-2.5 bg-gray-100 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white "
-                placeholder="Your Name"
-              />
-            </div> */}
+          <form className="space-y-4 md:space-y-6">
             <div>
               <label
                 htmlFor="email"
@@ -120,12 +113,13 @@ const SignIn = () => {
               By clicking Sign Up, you agree to our Terms, Privacy Policy and
               Cookies Policy.
             </p>
-            <button
-              type="submit"
-              className="w-full  text-white bg-indigo-500 dark:bg-red-500  dark:hover:bg-red-600 hover:bg-indigo-600 rounded-sm text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 font-semibold"
-            >
-              Sign Up
-            </button>
+
+            <DefButton
+              loading={loading}
+              func={handleSubmit}
+              name="Sign Up"
+              btnStyle="text-white pBtn px-5 py-2 w-full"
+            />
             <p className="text-sm font-light text-gray-500  dark:text-gray-400">
               Already Have an Account?{" "}
               <Link

@@ -6,17 +6,29 @@ import { useUserAuth } from "../../lib/Context/UserAuthContext";
 const DashboardLayout = ({ children }) => {
   const { user } = useUserAuth();
   const router = useRouter();
-  // if (user.email != "itsgaurav3112003@gmail.com") {
-  //   return (
-  //     <div className="w-full h-screen grid place-items-center">
-  //       <div>
-  //         <img src="" alt="" />
-  //         <h1 className="text-red-800 font-semibold text-center">Website</h1>
-  //         <p>Under Construction</p>
-  //       </div>
-  //     </div>
-  //   );
-  // }
+
+  if (!user) {
+    return (
+      <div className="w-full h-screen grid place-items-center">
+        <div>
+          <img src="" alt="" />
+          <h1 className="text-red-800 font-semibold text-center">!</h1>
+          <p>Login First</p>
+        </div>
+      </div>
+    );
+  }
+  if (user.email != "itsgaurav3112003@gmail.com") {
+    return (
+      <div className="w-full h-screen grid place-items-center">
+        <div>
+          <img src="" alt="" />
+          <h1 className="text-red-800 font-semibold text-center">Website</h1>
+          <p>Under Construction</p>
+        </div>
+      </div>
+    );
+  }
 
   if (user && user.emailVerified) {
     return (
@@ -55,9 +67,6 @@ const DashboardLayout = ({ children }) => {
       </div>
     );
   }
-  // else {
-  //   return <div className=" pt-24 h-full  container m-auto ">Login First</div>;
-  // }
 };
 
 export default DashboardLayout;

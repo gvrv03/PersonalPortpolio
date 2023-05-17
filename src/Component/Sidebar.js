@@ -6,9 +6,11 @@ import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
-import TopNav from "gauravnarnaware/NavItem/TopNav";
+import TopNav, { DashNav } from "gauravnarnaware/NavItem/TopNav";
 import Link from "next/link";
+import { useRouter } from "next/router";
 export default function Sidebar() {
+  const router = useRouter();
   const [state, setState] = React.useState({
     top: false,
     left: false,
@@ -30,7 +32,7 @@ export default function Sidebar() {
 
   const list = (anchor) => (
     <Box
-      sx={{ width: 300, padding: "10px" }}
+      sx={{ width: 300, padding: "10px 10px" }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
@@ -41,25 +43,38 @@ export default function Sidebar() {
       <Divider />
       <List>
         {TopNav.map((text, index) => (
-          <Link key={index} href={text.location}>
+          <button
+            className="w-full"
+            key={index}
+            onClick={() => {
+              router.push(text.location);
+            }}
+          >
             <ListItem disablePadding>
               <ListItemButton>
                 <i className={`text-blue-600 ${text.icon} mr-5 text-xl`} />
                 <ListItemText primary={text.name} />
               </ListItemButton>
             </ListItem>
-          </Link>
+          </button>
         ))}
 
-        <Divider />
-        <Link href="/Admin/Statistics">
+        <Divider sx={{ padding: "10px 0 " }} />
+        <button
+          className="md:block w-full mt-5 hidden"
+          onClick={() => {
+            router.push("/Admin/Statistics");
+          }}
+        >
           <ListItem disablePadding>
             <ListItemButton>
               <i className={`uil uil-dashboard text-blue-600  mr-5 text-xl`} />
               <ListItemText primary="Dashboard" />
             </ListItemButton>
           </ListItem>
-        </Link>
+        </button>
+
+        <SidebarAdmin />
       </List>
     </Box>
   );
@@ -67,7 +82,7 @@ export default function Sidebar() {
   return (
     <div>
       <>
-        <button onClick={toggleDrawer("left", true)} >
+        <button onClick={toggleDrawer("left", true)}>
           <i className="bi bi-list dark:text-gray-100 text-black text-2xl" />
         </button>
         <SwipeableDrawer
@@ -82,3 +97,91 @@ export default function Sidebar() {
     </div>
   );
 }
+
+export const SidebarAdmin = () => {
+  const router = useRouter();
+
+  const [state, setState] = React.useState({
+    top: false,
+    left: false,
+    bottom: false,
+    right: false,
+  });
+
+  const toggleDrawer = (anchor, open) => (event) => {
+    if (
+      event &&
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
+
+    setState({ ...state, [anchor]: open });
+  };
+
+  const list = (anchor) => (
+    <Box
+      sx={{ width: 300, padding: "20px" }}
+      role="presentation"
+      onClick={toggleDrawer(anchor, false)}
+      onKeyDown={toggleDrawer(anchor, false)}
+    >
+      <div className="flex gap-5 justify-between items-center">
+        <button
+          onClick={() => {
+            router.push("/Admin/CreatePost");
+          }}
+          className="text-red-500   flex gap-5 items-center justify-center dark:border-gray-800 dark:text-white dark:bg-gray-500 shadow-md border font-bold w-40 rounded-full py-3"
+        >
+          <i className="bi bi-plus-lg" />
+          <p>New Post</p>
+        </button>
+        <button>
+          <i class="uil uil-times text-3xl pColor" />
+        </button>{" "}
+      </div>
+      <Divider sx={{ padding: "10px 0 " }} />
+      <List>
+        {DashNav.map((text, index) => (
+          <Link key={index} href={text.location}>
+            <ListItem disablePadding>
+              <ListItemButton>
+                <i className={`text-blue-600 ${text.icon} mr-5 text-xl`} />
+                <ListItemText primary={text.name} />
+              </ListItemButton>
+            </ListItem>
+          </Link>
+        ))}
+      </List>
+    </Box>
+  );
+
+  return (
+    <div>
+      <>
+        <button
+          className="mt-5 w-full md:hidden block "
+          onClick={toggleDrawer("left", true)}
+        >
+          <ListItem disablePadding>
+            <ListItemButton>
+              <i className={`uil uil-apps  text-blue-600  mr-5 text-xl`} />
+              Dashboard
+            </ListItemButton>
+          </ListItem>
+        </button>
+
+        {/* <button className="w-full">Tools</button> */}
+        <SwipeableDrawer
+          anchor="left"
+          open={state["left"]}
+          onClose={toggleDrawer("left", false)}
+          onOpen={toggleDrawer("left", true)}
+        >
+          {list("left")}
+        </SwipeableDrawer>
+      </>
+    </div>
+  );
+};

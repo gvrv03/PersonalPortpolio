@@ -5,9 +5,9 @@ import React from "react";
 const Statistics = () => {
   return (
     <DashboardLayout>
-        <HeaderStat/>
+      <HeaderStat />
     </DashboardLayout>
-  )
+  );
 };
 
 export default Statistics;

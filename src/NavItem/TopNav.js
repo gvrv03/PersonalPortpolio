@@ -20,6 +20,11 @@ const TopNav = [
     icon: "pColor uil uil-bookmark",
   },
   {
+    name: "Profile",
+    location: "/Profile",
+    icon: "pColor uil uil-user",
+  },
+  {
     name: "About",
     location: "/AboutUs",
     icon: "pColor uil uil-info-circle",
@@ -34,7 +39,7 @@ const TopNav = [
 export const DashNav = [
   {
     name: "Stats",
-    location: "/Admin/AllBlogs",
+    location: "/Admin/Statistics",
     icon: "pColor uil uil-graph-bar",
   },
   {

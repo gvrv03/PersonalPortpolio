@@ -3,14 +3,22 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { useUserAuth } from "../../lib/Context/UserAuthContext";
 import { useRouter } from "next/router";
+import { DefButton } from "gauravnarnaware/Component/UtilComponent";
 
 const SignIn = () => {
   const [userData, setuserData] = useState({});
   const [requiredState, setRequired] = useState(false);
   const { signUIn, user } = useUserAuth();
   const [msg, setmsg] = useState("");
+  const [loading, setloading] = useState(false);
+
   const router = useRouter();
 
+  if (msg) {
+    setTimeout(() => {
+      setmsg("");
+    }, 4000);
+  }
   if (user) {
     router.push("/");
   }
@@ -23,15 +31,17 @@ const SignIn = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setmsg("");
+    setloading(true);
     try {
       await signUIn(userData.email, userData.password);
-      // localStorage.setItem("accessToken", user.accessToken);
+      setloading(false);
+
       router.push("/");
     } catch (error) {
       setmsg(error.code);
+      setloading(false);
     }
   };
-  console.log(userData);
   return (
     <Auth>
       <div className="w-full bg-white rounded-sm shadow-lg md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-900 dark:border-gray-700">
@@ -77,20 +87,19 @@ const SignIn = () => {
               />
             </div>
             <div className="flex items-center justify-between">
-
-              <Link 
+              <Link
                 href="/Forgot"
                 className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500"
               >
                 Forgot password?
               </Link>
             </div>
-            <button
-              type="submit"
-              className="w-full  text-white bg-indigo-500 dark:bg-red-500  dark:hover:bg-red-600 hover:bg-indigo-600 rounded-sm text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 font-semibold"
-            >
-              Sign in
-            </button>
+            <DefButton
+              loading={loading}
+              func={handleSubmit}
+              name="Sign In"
+              btnStyle="text-white pBtn px-5 py-2 w-full"
+            />
             <p className="text-sm font-light text-gray-500  dark:text-gray-400">
               Don&apos;t have an account yet?{" "}
               <Link
