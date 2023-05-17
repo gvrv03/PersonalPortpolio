@@ -1,5 +1,5 @@
 import DashboardLayout from "gauravnarnaware/Layout/DashboardLayout";
-import { fetchBlogs } from "gauravnarnaware/Store/Slices/blogSlice";
+import { fetchBlogs } from "gauravnarnaware/Store/Actions/blogAction";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 

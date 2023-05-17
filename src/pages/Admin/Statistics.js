@@ -5,11 +5,9 @@ import React from "react";
 const Statistics = () => {
   return (
     <DashboardLayout>
-      <div className="p-5 bg-white dark:bg-gray-900" >
-        <HeaderStat />
-      </div>{" "}
+        <HeaderStat/>
     </DashboardLayout>
-  );
+  )
 };
 
 export default Statistics;

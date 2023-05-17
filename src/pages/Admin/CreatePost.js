@@ -98,6 +98,7 @@ const CreatePost = () => {
                   onChange={(e) => {
                     setcat(e.target.value);
                   }}
+                  value={cat ? cat : ""}
                   className="border outline-none p-2 text-sm w-full  dark:bg-gray-700 dark:border-gray-600"
                   placeholder="Category"
                 />
@@ -106,6 +107,7 @@ const CreatePost = () => {
                   disabled={!cat ? true : false}
                   onClick={() => {
                     addCategory(cat);
+                    setcat("");
                   }}
                 >
                   <i className="bi text-white font-semibold bi-plus-lg" />

@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { getAllBlogsURL } from "../../../allLinks";
+import { fetchBlogs } from "../Actions/blogAction";
 
 // Define the initial state
 const initialState = {
@@ -7,17 +7,6 @@ const initialState = {
   isLoading: false,
   error: null,
 };
-
-// Create an async thunk to fetch user data
-export const fetchBlogs = createAsyncThunk("blogs/fetchBlogs", async () => {
-  const res = await fetch(getAllBlogsURL, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-  return await res.json();
-});
 
 // Create the user slice
 const blogSlice = createSlice({

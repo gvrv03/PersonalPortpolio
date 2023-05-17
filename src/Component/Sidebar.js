@@ -44,7 +44,7 @@ export default function Sidebar() {
           <Link key={index} href={text.location}>
             <ListItem disablePadding>
               <ListItemButton>
-                <i className={`bi ${text.icon} mr-5 text-xl`} />
+                <i className={`text-blue-600 ${text.icon} mr-5 text-xl`} />
                 <ListItemText primary={text.name} />
               </ListItemButton>
             </ListItem>
@@ -55,7 +55,7 @@ export default function Sidebar() {
         <Link href="/Admin/Statistics">
           <ListItem disablePadding>
             <ListItemButton>
-              <i className={`bi bi-bar-chart-line-fill  mr-5 text-xl`} />
+              <i className={`uil uil-dashboard text-blue-600  mr-5 text-xl`} />
               <ListItemText primary="Dashboard" />
             </ListItemButton>
           </ListItem>
@@ -67,16 +67,16 @@ export default function Sidebar() {
   return (
     <div>
       <>
-        <button onClick={toggleDrawer("right", true)} >
+        <button onClick={toggleDrawer("left", true)} >
           <i className="bi bi-list dark:text-gray-100 text-black text-2xl" />
         </button>
         <SwipeableDrawer
-          anchor="right"
-          open={state["right"]}
-          onClose={toggleDrawer("right", false)}
-          onOpen={toggleDrawer("right", true)}
+          anchor="left"
+          open={state["left"]}
+          onClose={toggleDrawer("left", false)}
+          onOpen={toggleDrawer("left", true)}
         >
-          {list("right")}
+          {list("left")}
         </SwipeableDrawer>
       </>
     </div>

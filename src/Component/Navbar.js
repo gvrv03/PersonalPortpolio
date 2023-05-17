@@ -23,7 +23,10 @@ const Navbar = () => {
       <nav className="py-3 px-5 fixed z-50 w-full left-0 backdrop-blur-xl dark:border-none shadow-md ">
         <div className="container flex flex-wrap items-center justify-between mx-auto">
           <Link href="/" className="flex items-center">
-            <span className="text-xl  font-semibold  ">Gaurav</span>
+            <span className="border w-10 h-10 grid  rounded-full place-items-center  text-2xl pColor rotate-45 font-bold">G</span>
+            <span className="text-xl  md:block hidden font-semibold ml-2 ">
+              Gaurav
+            </span>
           </Link>
           <div
             data-collapse-toggle="navbar-multi-level"
@@ -32,9 +35,11 @@ const Navbar = () => {
             aria-controls="navbar-multi-level"
             aria-expanded="false"
           >
-            <button className="">
-              <i className="bi bi-search text-lg" />
-            </button>
+            <input
+              type="search"
+              className="bg-transparent rounded-full p-2 text-xs border  border-gray-200 outline-none"
+              placeholder="Search..."
+            />
 
             <ToggleButton
               value="check"
@@ -42,13 +47,17 @@ const Navbar = () => {
                 width: "10px",
                 height: "10px",
                 background: "white",
-                padding:"2px",
+                padding: "2px",
                 border: "none",
               }}
               selected={themeMode == "light" ? true : false}
               onChange={toggleTheme}
             >
-              {themeMode == "light" ? <DarkModeIcon /> : <WbSunnyIcon sx={{color:"white"}} />}
+              {themeMode == "light" ? (
+                <DarkModeIcon />
+              ) : (
+                <WbSunnyIcon sx={{ color: "white" }} />
+              )}
             </ToggleButton>
 
             {!user ? (

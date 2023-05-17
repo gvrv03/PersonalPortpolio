@@ -1,3 +1,4 @@
+import { DashNav } from "gauravnarnaware/NavItem/TopNav";
 import { useRouter } from "next/router";
 import React from "react";
 import { useUserAuth } from "../../lib/Context/UserAuthContext";
@@ -31,61 +32,21 @@ const DashboardLayout = ({ children }) => {
               <i className="bi bi-plus-lg" />
               <p>New Post</p>
             </button>
-            <button
-              onClick={() => {
-                router.push("/Admin/Statistics");
-              }}
-              className="bg-red-50 flex w-full gap-5 mt-5 rounded-md text-left px-5 py-2 font-semibold dark:bg-gray-800"
-            >
-              <i className="bi bi-pen-fill" />
-              <p>Stats</p>
-            </button>
-            <button
-              onClick={() => {
-                router.push("/Admin/AllBlogs");
-              }}
-              className=" flex w-full gap-5 rounded-md text-left px-5 py-2 font-semibold"
-            >
-              <i className="bi bi-newspaper" />
-              <p>Posts</p>
-            </button>
-            <button className=" flex w-full gap-5 rounded-md text-left px-5 py-2 font-semibold">
-              <i className="bi bi-card-text" />
-              <p>Pages</p>
-            </button>
-            <button className=" flex w-full gap-5 rounded-md text-left px-5 py-2 font-semibold">
-              <i className="bi bi-envelope-fill" />
-              <p>Messages</p>
-            </button>
-            <button className=" flex w-full gap-5 rounded-md text-left px-5 py-2 font-semibold">
-              <i className="bi bi-cast" />
-              <p>Projects</p>
-            </button>
-            <button className=" flex w-full gap-5 rounded-md text-left px-5 py-2 font-semibold">
-              <i className="bi bi-telephone-fill" />
-              <p>Contacts Us</p>
-            </button>
-            <button className=" flex w-full gap-5 rounded-md text-left px-5 py-2 font-semibold">
-              <i className="bi bi-bag-fill" />
-              <p>Product</p>
-            </button>
-            <button className=" flex w-full gap-5 rounded-md text-left px-5 py-2 font-semibold">
-              <i className="bi bi-inbox-fill" />
-              <p>All Email</p>
-            </button>
-            <button
-              onClick={() => {
-                router.push("/Admin/AllUsers");
-              }}
-              className=" flex w-full gap-5 rounded-md text-left px-5 py-2 font-semibold"
-            >
-              <i className="bi bi-person-fill" />
-              <p>Users</p>
-            </button>
-            <button className=" flex w-full gap-5 rounded-md text-left px-5 py-2 font-semibold">
-              <i className="bi bi-gear-fill" />
-              <p>Setting</p>
-            </button>
+
+            {DashNav.map((item, index) => {
+              return (
+                <button
+                  key={index}
+                  onClick={() => {
+                    router.push(item.location);
+                  }}
+                  className=" flex w-full gap-5 mt-5 rounded-md text-left px-5  font-semibold "
+                >
+                  <i className={`${item.icon} `} />
+                  <p>{item.name} </p>
+                </button>
+              );
+            })}
           </aside>
           <div className="w-full ">
             <div className=" h-screen">{children}</div>

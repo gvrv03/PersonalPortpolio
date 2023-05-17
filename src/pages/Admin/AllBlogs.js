@@ -1,6 +1,7 @@
 import HeaderStat from "gauravnarnaware/Component/Admin/HeaderStat";
+import LoadingSpinner from "gauravnarnaware/Component/Spinner/LoadingSpinner";
 import DashboardLayout from "gauravnarnaware/Layout/DashboardLayout";
-import { fetchBlogs } from "gauravnarnaware/Store/Slices/blogSlice";
+import { fetchBlogs } from "gauravnarnaware/Store/Actions/blogAction";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,8 +15,6 @@ const AllBlogs = () => {
 
   const blogs = useSelector((state) => state.blogs);
   const { isLoading, error } = blogs;
-  console.log(blogs);
-
   return (
     <DashboardLayout>
       <div className="h-full  ">
@@ -30,30 +29,29 @@ const AllBlogs = () => {
             <i className="bi bi-arrow-clockwise text-lg" />{" "}
           </button>
         </div>
-        {error && <div className="  p-5 mt-5">Error occured</div>}
+        {error && <div className="  p-5 mt-5">Unexpected error occured !</div>}
         {isLoading && (
           <div className=" p-2 mt-5 grid place-items-center">
-            <img src="/spinner.gif" className="w-10 h-10" alt="" />
+            <LoadingSpinner />
           </div>
         )}
         <div className="mt-5 flex gap-5 flex-col h-full  overflow-y-scroll">
           {blogs.data &&
             blogs.data.map((item, index) => {
               return (
-                <div 
-                key={index}
-                className="bg-white dark:bg-gray-900 h-fit  p-5">
+                <div
+                  key={index}
+                  className="bg-white dark:bg-gray-900 h-fit  p-5"
+                >
                   {" "}
-                  <div
-                    className="flex flex-col md:flex-row items-center justify-between gap-5  "
-                  >
+                  <div className="flex flex-col md:flex-row items-center justify-between gap-5  ">
                     <div className="flex gap-5  items-center flex-col justify-center md:flex-row ">
                       <div>
                         <img
                           src={item.image}
-                          className="h-20 w-20 rounded-full border"
+                          className="md:h-20 md:w-20 md:rounded-full border"
                           alt=""
-                          srcset=""
+                          srcSet=""
                         />
                       </div>
                       <div className="md:text-start text-center">
@@ -63,7 +61,7 @@ const AllBlogs = () => {
                     </div>
 
                     <div className="flex flex-col  gap-5 justify-center items-center">
-                      <div className="flex gap-2 justify-end">
+                      <div className="flex gap-2 text-xs md:text-sm justify-end">
                         <button className=" p-1 w-8 h-8 bg-sky-50 dark:bg-gray-700 rounded-sm">
                           <i className=" bi bi-eye-fill" />
                         </button>
@@ -82,7 +80,7 @@ const AllBlogs = () => {
                           <i className=" bi bi-share-fill" />
                         </button>
                       </div>
-                      <div className="flex gap-5">
+                      <div className="flex text-xs md:text-sm gap-5">
                         <h5>{item.author}</h5>
                         <i className="bi bi-person-fill" />
                       </div>

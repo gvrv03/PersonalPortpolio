@@ -2,32 +2,85 @@ const TopNav = [
   {
     name: "Home",
     location: "/",
-    icon: "bi-house-door-fill",
+    icon: "pColor uil uil-estate",
   },
   {
     name: "Blogs",
     location: "/Blogs",
-    icon: "bi-building-fill",
+    icon: "pColor uil uil-document-layout-left",
   },
   {
     name: "Projects",
     location: "/Projects",
-    icon: "bi-building-fill",
+    icon: "pColor uil uil-files-landscapes-alt",
   },
   {
     name: "Collection",
     location: "/Collection",
-    icon: "bi-bookmarks-fill",
+    icon: "pColor uil uil-bookmark",
   },
   {
     name: "About",
     location: "/AboutUs",
-    icon: "bi-info-square-fill",
+    icon: "pColor uil uil-info-circle",
   },
   {
     name: "Contact",
     location: "/ContactUs",
-    icon: "bi-headphones",
+    icon: "pColor uil uil-phone",
+  },
+];
+
+export const DashNav = [
+  {
+    name: "Stats",
+    location: "/Admin/AllBlogs",
+    icon: "pColor uil uil-graph-bar",
+  },
+  {
+    name: "Posts",
+    location: "/Admin/AllBlogs",
+    icon: "pColor uil uil-notebooks",
+  },
+  {
+    name: "Pages",
+    location: "/",
+    icon: "pColor uil uil-layers",
+  },
+  {
+    name: "Messages",
+    location: "/",
+    icon: "pColor uil uil-message",
+  },
+  {
+    name: "Projects",
+    location: "/",
+    icon: "pColor uil uil-file-lock-alt",
+  },
+  {
+    name: "Contacts",
+    location: "/",
+    icon: "pColor uil uil-phone",
+  },
+  {
+    name: "Products",
+    location: "/",
+    icon: "pColor uil uil-shopping-bag",
+  },
+  {
+    name: "Emails",
+    location: "/",
+    icon: "pColor uil uil-envelope",
+  },
+  {
+    name: "Users",
+    location: "/Admin/AllUsers",
+    icon: "pColor uil uil-user",
+  },
+  {
+    name: "Setting",
+    location: "/",
+    icon: "pColor uil uil-cog",
   },
 ];
 
