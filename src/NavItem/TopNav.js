@@ -1,3 +1,20 @@
+export const Legal = [
+  {
+    name: "Disclaimer",
+    location: "/",
+    icon: "pColor uil uil-shield-exclamation",
+  },
+  {
+    name: "Terms & Condition",
+    location: "/",
+    icon: "pColor uil uil-file-contract",
+  },
+  {
+    name: "Privacy policy",
+    location: "/",
+    icon: "pColor uil uil-shield-check",
+  },
+];
 const TopNav = [
   {
     name: "Home",
@@ -23,6 +40,11 @@ const TopNav = [
     name: "Profile",
     location: "/Profile",
     icon: "pColor uil uil-user",
+  },
+  {
+    name: "Sitemap",
+    location: "/Sitemap",
+    icon: "pColor uil uil-sitemap",
   },
   {
     name: "About",
@@ -85,7 +107,7 @@ export const DashNav = [
   {
     name: "Feedbacks",
     location: "/Admin/AllFeedbacks",
-    icon: "pColor uil uil-user",
+    icon: "pColor uil uil-feedback",
   },
   {
     name: "Setting",

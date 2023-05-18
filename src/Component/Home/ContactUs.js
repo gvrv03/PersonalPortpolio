@@ -97,7 +97,7 @@ const ContactUs = () => {
               className="w-full bg-slate-50  dark:text-white rounded-sm dark:bg-gray-800  focus:border-indigo-500 focus:ring-2  h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
             ></textarea>
           </div>
-          <button className="text-white bg-indigo-500 dark:bg-red-500  dark:hover:bg-red-600 hover:bg-indigo-600  border-0 py-2 px-6 focus:outline-nonerounded-sm text-lg">
+          <button className="pBtn border-0 py-2 px-6 focus:outline-nonerounded-sm text-lg">
             Send Message
           </button>
         </div>

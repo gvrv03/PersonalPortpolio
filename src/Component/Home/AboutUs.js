@@ -2,6 +2,7 @@ import React from "react";
 import HeaderName from "./HeaderName";
 import Typewriter from "typewriter-effect";
 import Image from "next/image";
+import Link from "next/link";
 
 const AboutUs = () => {
   return (
@@ -38,13 +39,13 @@ const AboutUs = () => {
             other web development frameworks.
           </p>
           <div className=" grid place-items-center">
-            <a
+            <Link
               href="/gvrvresume.pdf"
               download
-              className="py-2 text-center px-10  bg-indigo-500 dark:bg-red-500  dark:hover:bg-red-600 hover:bg-indigo-600   text-lg rounded-sm text-white mt-5 font-bold "
+              className="py-2 pBtn text-center px-10  bg-indigo-500 dark:bg-red-500  dark:hover:bg-red-600 hover:bg-indigo-600   text-lg rounded-sm text-white mt-5 font-bold "
             >
               Download CV
-            </a>
+            </Link>
           </div>
         </div>
       </div>

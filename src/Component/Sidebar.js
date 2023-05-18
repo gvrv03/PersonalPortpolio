@@ -6,7 +6,7 @@ import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
-import TopNav, { DashNav } from "gauravnarnaware/NavItem/TopNav";
+import TopNav, { DashNav, Legal } from "gauravnarnaware/NavItem/TopNav";
 import Link from "next/link";
 import { useRouter } from "next/router";
 export default function Sidebar() {
@@ -59,7 +59,25 @@ export default function Sidebar() {
           </button>
         ))}
 
+        <Divider sx={{ margin: "10px 0 " }} />
+        {Legal.map((text, index) => (
+          <button
+            className="w-full"
+            key={index}
+            onClick={() => {
+              router.push(text.location);
+            }}
+          >
+            <ListItem disablePadding>
+              <ListItemButton>
+                <i className={`text-blue-600 ${text.icon} mr-5 text-xl`} />
+                <ListItemText primary={text.name} />
+              </ListItemButton>
+            </ListItem>
+          </button>
+        ))}
         <Divider sx={{ padding: "10px 0 " }} />
+
         <button
           className="md:block w-full mt-5 hidden"
           onClick={() => {
@@ -68,7 +86,7 @@ export default function Sidebar() {
         >
           <ListItem disablePadding>
             <ListItemButton>
-              <i className={`uil uil-dashboard text-blue-600  mr-5 text-xl`} />
+              <i className={`uil uil-dashboard pColor   mr-5 text-xl`} />
               <ListItemText primary="Dashboard" />
             </ListItemButton>
           </ListItem>
@@ -166,7 +184,7 @@ export const SidebarAdmin = () => {
         >
           <ListItem disablePadding>
             <ListItemButton>
-              <i className={`uil uil-apps  text-blue-600  mr-5 text-xl`} />
+              <i className={`uil uil-apps  pColor mr-5 text-xl`} />
               Dashboard
             </ListItemButton>
           </ListItem>

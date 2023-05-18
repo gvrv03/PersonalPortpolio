@@ -14,24 +14,27 @@
 ::-webkit-scrollbar {
   width: 0px;
 }
-.pColor {
-  color: blue;
+
+:root {
+  --PrimaryColor: rgb(255, 0, 0);
 }
-.trans {
-  transition: all 5s ease;
+.pColor {
+  color: var(--PrimaryColor);
 }
 .pBtn {
-  background-color: red;
+  background-color: var(--PrimaryColor);
   color: white;
   font-weight: 600;
 }
-.h-90{
+.h-90 {
   height: 90vh;
 }
 /* .se-container{
   height: 100vh !important;
 } */
-
+.se-wrapper {
+  height: 100vh !important;
+}
 /* background black  */
 .blackBg {
   background-color: rgba(0, 0, 0, 0.678);
@@ -142,7 +145,7 @@
 .ldio-q5ahwqdlgxn div {
   /* top: 9px; */
   left: 100%;
-  
+
   position: absolute;
   animation: ldio-q5ahwqdlgxn linear 0.7633587786259541s infinite;
   background: #290908;
@@ -227,7 +230,7 @@
   position: relative;
   transform: translateZ(0) scale(0.48);
   backface-visibility: hidden;
-  transform-origin: 0 0; 
+  transform-origin: 0 0;
   /* see note above */
 }
 .ldio-q5ahwqdlgxn div {
