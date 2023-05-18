@@ -1,15 +1,14 @@
-import UserTable from "gauravnarnaware/Component/Table/UserTable";
-import EnhancedTable from "gauravnarnaware/Component/Table/UserTable";
+import ContactUsTable from "gauravnarnaware/Component/Table/ContactUsTable";
 import { User } from "gauravnarnaware/DataSet/DataSet";
 import DashboardLayout from "gauravnarnaware/Layout/DashboardLayout";
-import React, { useEffect } from "react";
+import React, from "react";
 
-const AllUsers = () => {
+const AllContactUs = () => {
   return (
     <DashboardLayout>
       <div>
         <div className=" font-semibold    rounded-sm dark:border-gray-700 border-b-2 p-2 bg-white dark:bg-gray-900   flex justify-between ">
-          <div>All User ({User.length})</div>
+          <div>All Contacts ({User.length})</div>
           <div className="flex gap-5 justify-between items-center">
             <button>
               <i className="bi bi-arrow-clockwise text-lg" />{" "}
@@ -18,17 +17,17 @@ const AllUsers = () => {
               type="button"
               className="text-xs pBtn px-5 font-semibold rounded-sm py-2"
             >
-              Add User
+              Add Contact Us
             </button>
           </div>
         </div>
 
         <div className="mt-5">
-          <UserTable />
+          <ContactUsTable />
         </div>
       </div>
     </DashboardLayout>
   );
 };
 
-export default AllUsers;
+export default AllContactUs;

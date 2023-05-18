@@ -12,8 +12,8 @@ const LoadingSpinner = () => {
 
 export const BtnSpinner = () => {
   return (
-    <div class="loadingio-spinner-spinner-9vokdfybll  ">
-      <div class="ldio-q5ahwqdlgxn">
+    <div className="loadingio-spinner-spinner-9vokdfybll  ">
+      <div className="ldio-q5ahwqdlgxn">
         <div></div>
         <div></div>
         <div></div>

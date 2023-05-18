@@ -28,7 +28,13 @@ export default function UserDropDown() {
   };
   return (
     <>
-      <Box sx={{ display: "flex", alignItems: "center", textAlign: "center" }}>
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          textAlign: "center",
+        }}
+      >
         <Tooltip title="Account settings">
           <IconButton
             onClick={handleClick}
@@ -38,7 +44,7 @@ export default function UserDropDown() {
             aria-expanded={open ? "true" : undefined}
           >
             <Avatar sx={{ width: 32, height: 32 }}>
-              <img src={user.photoURL} alt={user.displayName} />
+              <img src={user.photoURL} className="p-1 rounded-full bg-gray-200" alt={user.displayName} />
             </Avatar>
           </IconButton>
         </Tooltip>

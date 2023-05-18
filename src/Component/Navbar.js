@@ -20,7 +20,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="py-3 px-5 fixed z-50 w-full left-0 backdrop-blur-xl dark:border-none shadow-md ">
+      <nav className="py-3 px-5 fixed z-50 w-full left-0 backdrop-blur-xl top-0 dark:border-none shadow-md ">
         <div className="container flex flex-wrap items-center justify-between mx-auto">
           <Link href="/" className="flex items-center">
             <span className="border w-10 h-10 grid  rounded-full place-items-center  text-2xl pColor rotate-45 font-bold">G</span>
@@ -41,7 +41,7 @@ const Navbar = () => {
               placeholder="Search..."
             />
 
-            <ToggleButton
+            {/* <ToggleButton
               value="check"
               sx={{
                 width: "10px",
@@ -58,7 +58,7 @@ const Navbar = () => {
               ) : (
                 <WbSunnyIcon sx={{ color: "white" }} />
               )}
-            </ToggleButton>
+            </ToggleButton> */}
 
             {!user ? (
               <Link

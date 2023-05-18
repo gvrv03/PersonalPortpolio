@@ -64,7 +64,7 @@ export const DashNav = [
   },
   {
     name: "Contacts",
-    location: "/",
+    location: "/Admin/AllContactUs",
     icon: "pColor uil uil-phone",
   },
   {
@@ -74,12 +74,17 @@ export const DashNav = [
   },
   {
     name: "Emails",
-    location: "/",
+    location: "/Admin/AllEmails",
     icon: "pColor uil uil-envelope",
   },
   {
     name: "Users",
     location: "/Admin/AllUsers",
+    icon: "pColor uil uil-user",
+  },
+  {
+    name: "Feedbacks",
+    location: "/Admin/AllFeedbacks",
     icon: "pColor uil uil-user",
   },
   {

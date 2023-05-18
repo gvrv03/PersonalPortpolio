@@ -65,7 +65,7 @@ const CreatePost = () => {
           </div>
 
           <div
-            className={`flex md:w-1/5 md:relative fixed w-full h-full md:right-0 transition-all ease-linear delay-150   ${blogNav} md:top-0 top-20  md:p-0 z-50 bg-white dark:bg-gray-900 p-5 flex-col gap-5`}
+            className={`flex md:w-1/5 md:relative fixed w-full h-full md:right-0 transition-all ease-linear delay-300   ${blogNav} md:top-0 top-20  md:p-0 z-50 bg-white dark:bg-gray-900 p-5 flex-col gap-5`}
           >
             <div className="md:hidden">
               <button

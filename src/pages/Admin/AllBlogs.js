@@ -15,19 +15,22 @@ const AllBlogs = () => {
 
   const blogs = useSelector((state) => state.blogs);
   const { isLoading, error } = blogs;
+  
   return (
     <DashboardLayout>
       <div className="h-full  ">
         <div className=" font-semibold    rounded-sm dark:border-gray-700 border-b-2 p-2 bg-white dark:bg-gray-900   flex justify-between ">
           <div>All Blogs ({blogs.data.length})</div>
-          <button
-            onClick={() => {
-              dispatch(fetchBlogs());
-            }}
-          >
-            {" "}
-            <i className="bi bi-arrow-clockwise text-lg" />{" "}
-          </button>
+          <div className="flex gap-5 justify-between items-center">
+            <button
+              onClick={() => {
+                dispatch(fetchBlogs());
+              }}
+            >
+              <i className="bi bi-arrow-clockwise text-lg" />{" "}
+            </button>
+            <button type="button" className="text-xs pBtn px-5 font-semibold rounded-sm py-2" >Create Post</button>
+          </div>
         </div>
         {error && <div className="  p-5 mt-5">Unexpected error occured !</div>}
         {isLoading && (

@@ -138,7 +138,7 @@ export const SidebarAdmin = () => {
           <p>New Post</p>
         </button>
         <button>
-          <i class="uil uil-times text-3xl pColor" />
+          <i className="uil uil-times text-3xl pColor" />
         </button>{" "}
       </div>
       <Divider sx={{ padding: "10px 0 " }} />

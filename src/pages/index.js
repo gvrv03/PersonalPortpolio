@@ -11,15 +11,9 @@ export default function Home({ blogs }) {
       <LandingPage />
       <AboutUs />
       <Skills />
-      <FeatureBlog blogs={blogs} />
+      <FeatureBlog  />
       <ContactUs />
     </>
   );
 }
 
-export async function getServerSideProps() {
-  const data = await getBlogs();
-  return {
-    props: { blogs: data },
-  };
-}
