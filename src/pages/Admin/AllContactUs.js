@@ -1,7 +1,7 @@
 import ContactUsTable from "gauravnarnaware/Component/Table/ContactUsTable";
 import { User } from "gauravnarnaware/DataSet/DataSet";
 import DashboardLayout from "gauravnarnaware/Layout/DashboardLayout";
-import React, from "react";
+import React from "react";
 
 const AllContactUs = () => {
   return (
